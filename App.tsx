@@ -1,11 +1,12 @@
 
 import React, { useState } from 'react';
-import { PROJECTS, SKILL_GROUPS, EXPERIENCES } from './constants';
+import { PROJECTS, SKILL_GROUPS, EXPERIENCES, EDUCATION, CERTIFICATIONS } from './constants';
 import { Project } from './types';
 import ProjectCard from './components/ProjectCard';
 
 const App: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
   const [filter, setFilter] = useState('ALL');
 
   const filteredProjects = filter === 'ALL' 
@@ -14,9 +15,9 @@ const App: React.FC = () => {
 
   return (
     <div className="relative w-full overflow-x-hidden">
-      {/* SECTION 1: HERO (LIGHT) */}
-      <section className="min-h-screen bg-white flex flex-col items-center">
-        <nav className="w-full max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
+      {/* FIXED NAVIGATION BAR */}
+      <nav className="fixed top-0 left-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-gray-100 px-6 py-4">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-[#5A57FF] rounded-lg flex items-center justify-center text-white font-bold">
               <i className="fas fa-cube"></i>
@@ -30,11 +31,17 @@ const App: React.FC = () => {
             <a href="#about" className="hover:text-[#5A57FF] transition-colors">About Me</a>
             <a href="#portfolio" className="hover:text-[#5A57FF] transition-colors">Portfolio</a>
           </div>
-          <button className="bg-[#0D1117] text-white px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition-all">
+          <a 
+            href="#contact" 
+            className="bg-[#0D1117] text-white px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition-all text-center inline-block"
+          >
             Contact
-          </button>
-        </nav>
+          </a>
+        </div>
+      </nav>
 
+      {/* SECTION 1: HERO (LIGHT) */}
+      <section className="min-h-screen pt-24 bg-white flex flex-col items-center">
         <div className="max-w-7xl w-full mx-auto px-6 flex-1 flex flex-col md:flex-row items-center gap-20 py-20">
           <div className="flex-1 space-y-8 animate-reveal">
             <div className="inline-flex items-center gap-3 bg-gray-50 border border-gray-100 rounded-full px-4 py-2">
@@ -49,20 +56,20 @@ const App: React.FC = () => {
               From Science to Data: Data Science | Analytics | Domain Expertise (Life Sciences & Manufacturing)
             </p>
             <div className="flex gap-4 pt-4">
-              <button className="bg-[#5A57FF] text-white px-10 py-4 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl shadow-indigo-200 hover:translate-y-[-2px] transition-all">
+              <a href="#contact" className="bg-[#5A57FF] text-white px-10 py-4 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl shadow-indigo-200 hover:translate-y-[-2px] transition-all">
                 Get in Touch
-              </button>
-              <button className="border border-gray-200 text-[#1a1a1a] px-10 py-4 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-gray-50 transition-all">
+              </a>
+              <a href="#portfolio" className="border border-gray-200 text-[#1a1a1a] px-10 py-4 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-gray-50 transition-all">
                 View Projects
-              </button>
+              </a>
             </div>
           </div>
 
-          <div className="flex-1 relative animate-reveal [animation-delay:200ms]">
+          <div className="flex-1 relative animate-reveal [animation-delay:200ms] flex justify-center">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[80%] bg-[#5A57FF]/5 rounded-[3rem] -rotate-6 z-0"></div>
-            <div className="relative z-10 p-4 bg-white rounded-[4rem] shadow-2xl border border-gray-100">
+            <div className="relative z-10 p-4 bg-white rounded-[4rem] shadow-2xl border border-gray-100 max-w-sm">
               <img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop" 
+                src="https://images.unsplash.com/photo-1766228385031-ad983e6a360e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=600&auto=format&fit=crop" 
                 alt="Spencer Profile" 
                 className="w-full aspect-[4/5] object-cover rounded-[3.5rem] grayscale"
               />
@@ -132,7 +139,10 @@ const App: React.FC = () => {
           </div>
 
           <div className="flex justify-center mt-20">
-            <button className="bg-white text-[#0D1117] px-10 py-4 rounded-full font-black text-xs uppercase tracking-widest hover:scale-105 transition-all flex items-center gap-3">
+            <button 
+              onClick={() => setIsResumeOpen(true)}
+              className="bg-white text-[#0D1117] px-10 py-4 rounded-full font-black text-xs uppercase tracking-widest hover:scale-105 transition-all flex items-center gap-3"
+            >
               Learn More About Me <i className="fas fa-arrow-right"></i>
             </button>
           </div>
@@ -166,7 +176,8 @@ const App: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {/* 4x1 Column Grid Layout */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {filteredProjects.map(project => (
               <ProjectCard key={project.id} project={project} onClick={setSelectedProject} />
             ))}
@@ -175,11 +186,11 @@ const App: React.FC = () => {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-white py-24 border-t border-gray-100">
+      <footer id="contact" className="bg-white py-24 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-6 text-center space-y-12">
           <h2 className="text-4xl font-extrabold text-[#1a1a1a]">Let's Connect</h2>
           <div className="flex justify-center gap-6">
-            <a href="#" className="w-14 h-14 bg-[#0D1117] rounded-full flex items-center justify-center text-white text-xl hover:scale-110 transition-transform">
+            <a href="mailto:example@email.com" className="w-14 h-14 bg-[#0D1117] rounded-full flex items-center justify-center text-white text-xl hover:scale-110 transition-transform">
               <i className="fas fa-envelope"></i>
             </a>
             <a href="#" className="w-14 h-14 bg-[#0D1117] rounded-full flex items-center justify-center text-white text-xl hover:scale-110 transition-transform">
@@ -190,10 +201,91 @@ const App: React.FC = () => {
             </a>
           </div>
           <p className="text-[10px] text-gray-400 font-bold uppercase tracking-[0.3em] pt-12">
-            © 2024 Spencer Lim Sze Sing / All Rights Reserved.
+            © 2026 Spencer Lim Sze Sing / All Rights Reserved.
           </p>
         </div>
       </footer>
+
+      {/* RESUME MODAL */}
+      {isResumeOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-[#0D1117]/95 backdrop-blur-xl animate-in fade-in duration-500 overflow-y-auto">
+          <div className="bg-white rounded-[3rem] w-full max-w-5xl my-auto shadow-2xl overflow-hidden flex flex-col lg:flex-row min-h-[80vh]">
+            {/* Sidebar info */}
+            <div className="lg:w-1/3 bg-gray-50 p-12 border-r border-gray-100">
+               <div className="mb-12">
+                <img 
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" 
+                  alt="Spencer" 
+                  className="w-24 h-24 rounded-3xl object-cover mb-6 grayscale"
+                />
+                <h3 className="text-2xl font-black text-[#1a1a1a] mb-1">Spencer Lim</h3>
+                <p className="text-gray-400 text-[10px] font-black uppercase tracking-widest">Master in Data Science</p>
+              </div>
+
+              <div className="space-y-10">
+                <div>
+                  <h4 className="text-[10px] font-black text-[#5A57FF] uppercase tracking-widest mb-4">Education</h4>
+                  {EDUCATION.map((edu, idx) => (
+                    <div key={idx} className="mb-6">
+                      <p className="text-sm font-extrabold text-[#1a1a1a]">{edu.degree}</p>
+                      <p className="text-xs text-gray-500 font-bold">{edu.school}</p>
+                      <p className="text-[10px] text-gray-400 mt-1">{edu.year}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div>
+                  <h4 className="text-[10px] font-black text-[#5A57FF] uppercase tracking-widest mb-4">Certifications</h4>
+                  <ul className="space-y-3">
+                    {CERTIFICATIONS.map((cert, idx) => (
+                      <li key={idx} className="text-xs text-gray-600 font-medium flex gap-2">
+                        <span className="text-[#5A57FF]">•</span> {cert}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Main Content */}
+            <div className="flex-1 p-12 relative">
+              <button 
+                onClick={() => setIsResumeOpen(false)}
+                className="absolute top-8 right-8 w-12 h-12 bg-white border border-gray-100 rounded-full flex items-center justify-center text-[#1a1a1a] shadow-lg hover:scale-110 transition-all z-10"
+              >
+                <i className="fas fa-times"></i>
+              </button>
+
+              <h3 className="text-4xl font-extrabold text-[#1a1a1a] mb-12 tracking-tight">Professional Experience</h3>
+              
+              <div className="space-y-12">
+                {EXPERIENCES.map((exp, idx) => (
+                  <div key={idx} className="relative pl-8 border-l-2 border-gray-100 pb-2">
+                    <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-white border-4 border-[#5A57FF]"></div>
+                    <div className="flex justify-between items-start mb-4">
+                      <div>
+                        <h4 className="text-xl font-bold text-[#1a1a1a]">{exp.role}</h4>
+                        <p className="text-[#5A57FF] text-sm font-extrabold">{exp.company}</p>
+                      </div>
+                      <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-100">
+                        {exp.period}
+                      </span>
+                    </div>
+                    <ul className="space-y-3">
+                      {exp.description.map((item, i) => (
+                        <li key={i} className="text-gray-500 text-sm leading-relaxed">
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* PROJECT MODAL */}
       {selectedProject && (

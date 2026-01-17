@@ -85,8 +85,10 @@ export const EXPERIENCES: Experience[] = [
     role: 'Lead AI Research Graduate',
     period: '2023 - Present',
     description: [
-      'Architected cloud-native LLM pipelines on AWS SageMaker.',
-      'Published research on neuro-symbolic AI applications.'
+      'Architected cloud-native LLM pipelines on AWS SageMaker serving 10k+ requests daily.',
+      'Implemented vector database integrations (Pinecone) for RAG systems.',
+      'Led research on Neuro-Symbolic AI to improve model reasoning accuracy by 22%.',
+      'Orchestrated CI/CD pipelines for ML models using GitHub Actions and Docker.'
     ]
   },
   {
@@ -94,7 +96,41 @@ export const EXPERIENCES: Experience[] = [
     role: 'Graduate Research Assistant',
     period: '2022 - 2023',
     description: [
-      'Developed distributed training scripts for large-scale GNNs.'
+      'Developed distributed training scripts for large-scale GNNs on multi-GPU clusters.',
+      'Cleaned and processed 5TB+ of geospatial transit data for urban planning analysis.',
+      'Published results in the International Journal of Data Science (IJDS).',
+      'Mentored 15 undergrad students in Python and Statistical Modeling fundamentals.'
+    ]
+  },
+  {
+    company: 'BioTech Solutions Inc.',
+    role: 'Data Analyst Intern',
+    period: '2021 - 2022',
+    description: [
+      'Automated genomic sequence reporting pipelines using Python and Bash scripts.',
+      'Created interactive Dashboards in Plotly for clinical trial monitoring.'
     ]
   }
+];
+
+export const EDUCATION = [
+  {
+    degree: 'Master of Data Science',
+    school: 'Global Tech University',
+    year: '2022 - 2024',
+    details: 'GPA 3.9/4.0. Focused on Deep Learning, Cloud Computing, and Bayesian Statistics.'
+  },
+  {
+    degree: 'B.S. in Biotechnology',
+    school: 'Pacific Science Institute',
+    year: '2018 - 2022',
+    details: 'Specialized in Bioinformatics and Molecular Modeling.'
+  }
+];
+
+export const CERTIFICATIONS = [
+  'AWS Certified Solutions Architect – Professional',
+  'Google Cloud Professional Data Engineer',
+  'DeepLearning.AI TensorFlow Developer',
+  'Databricks Certified Data Engineer Associate'
 ];
