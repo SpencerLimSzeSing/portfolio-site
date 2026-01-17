@@ -3,9 +3,9 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 /**
- * Replace 'spencer-portfolio' with your actual repository name on GitHub.
+ * Replace 'portfolio-site' with your actual repository name on GitHub.
  */
-const REPO_NAME = 'spencer-portfolio';
+const REPO_NAME = 'portfolio-site';
 
 export default defineConfig({
   plugins: [react()],
