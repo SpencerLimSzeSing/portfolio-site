@@ -3,21 +3,31 @@ export interface Project {
   id: string;
   title: string;
   description: string;
-  longDescription: string;
   tags: string[];
-  imageUrl: string;
-  githubUrl: string;
-  demoUrl?: string;
-  category: 'Machine Learning' | 'Deep Learning' | 'Data Visualization' | 'Statistical Analysis';
+  category: string;
+  image: string;
+  stars: number;
+  forks: number;
+  language: string;
+  color: string;
+  detailedInsights: string;
 }
 
 export interface Skill {
   name: string;
   level: number;
-  category: string;
+  category: 'Languages' | 'ML/DL' | 'Tools' | 'Statistics';
 }
 
-export interface ChatMessage {
+export interface Message {
   role: 'user' | 'model';
-  content: string;
+  text: string;
+  timestamp: Date;
+}
+
+export interface Experience {
+  company: string;
+  role: string;
+  period: string;
+  description: string[];
 }

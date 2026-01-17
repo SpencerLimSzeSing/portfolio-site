@@ -1,442 +1,258 @@
 
-import React, { useState, useMemo } from 'react';
-import { PROJECTS } from './constants';
+import React, { useState } from 'react';
+import { PROJECTS, SKILL_GROUPS, EXPERIENCES } from './constants';
 import { Project } from './types';
-import SkillsSection from './components/SkillsSection';
-import ChatWidget from './components/ChatWidget';
+import ProjectCard from './components/ProjectCard';
 
 const App: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
-  const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [filter, setFilter] = useState('ALL');
 
-  const categoryStats = useMemo(() => {
-    const stats: Record<string, number> = { 'All': PROJECTS.length };
-    PROJECTS.forEach(p => {
-      stats[p.category] = (stats[p.category] || 0) + 1;
-    });
-    return stats;
-  }, []);
-
-  const categories = useMemo(() => Object.keys(categoryStats), [categoryStats]);
-
-  const filteredProjects = useMemo(() => {
-    return PROJECTS.filter(p => {
-      const categoryMatch = selectedCategory === 'All' || p.category === selectedCategory;
-      const tagMatch = !selectedTag || p.tags.includes(selectedTag);
-      return categoryMatch && tagMatch;
-    });
-  }, [selectedCategory, selectedTag]);
-
-  const handleTagClick = (tag: string) => {
-    setSelectedTag(tag === selectedTag ? null : tag);
-  };
+  const filteredProjects = filter === 'ALL' 
+    ? PROJECTS 
+    : PROJECTS.filter(p => p.category === filter);
 
   return (
-    <div className="min-h-screen selection:bg-indigo-100 selection:text-indigo-900">
-      {/* Navigation */}
-      <nav className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-100">
-        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+    <div className="relative w-full overflow-x-hidden">
+      {/* SECTION 1: HERO (LIGHT) */}
+      <section className="min-h-screen bg-white flex flex-col items-center">
+        <nav className="w-full max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="bg-indigo-600 text-white p-1.5 rounded-lg shadow-sm">
-              <i className="fas fa-database"></i>
+            <div className="w-8 h-8 bg-[#5A57FF] rounded-lg flex items-center justify-center text-white font-bold">
+              <i className="fas fa-cube"></i>
             </div>
-            <span className="font-bold text-xl tracking-tight">ALEX<span className="text-indigo-600">.DS</span></span>
+            <span className="font-extrabold text-xl tracking-tighter text-[#1a1a1a]">
+              SPENCER <span className="text-[#5A57FF]">| PORTFOLIO</span>
+            </span>
           </div>
-          <div className="hidden md:flex items-center gap-8 font-medium text-slate-600">
-            <a href="#home" className="hover:text-indigo-600 transition-colors">Home</a>
-            <a href="#about" className="hover:text-indigo-600 transition-colors">About</a>
-            <a href="#skills" className="hover:text-indigo-600 transition-colors">Skills</a>
-            <a href="#projects" className="hover:text-indigo-600 transition-colors">Projects</a>
+          <div className="hidden md:flex gap-10 text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">
+            <a href="#" className="hover:text-[#5A57FF] transition-colors">Home</a>
+            <a href="#about" className="hover:text-[#5A57FF] transition-colors">About Me</a>
+            <a href="#portfolio" className="hover:text-[#5A57FF] transition-colors">Portfolio</a>
           </div>
-          <a 
-            href="mailto:alex@example.com" 
-            className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all shadow-md shadow-indigo-100"
-          >
-            Get In Touch
-          </a>
-        </div>
-      </nav>
+          <button className="bg-[#0D1117] text-white px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition-all">
+            Contact
+          </button>
+        </nav>
 
-      {/* Home / Hero Section */}
-      <section id="home" className="relative pt-20 pb-24 overflow-hidden bg-slate-50">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10 pointer-events-none">
-          <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <defs>
-              <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5"/>
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#grid)" />
-          </svg>
-        </div>
-
-        <div className="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12 relative">
-          <div className="flex-1 space-y-8 text-center md:text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 text-xs font-bold uppercase tracking-wider">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
-              </span>
-              MS Data Science Graduate
+        <div className="max-w-7xl w-full mx-auto px-6 flex-1 flex flex-col md:flex-row items-center gap-20 py-20">
+          <div className="flex-1 space-y-8 animate-reveal">
+            <div className="inline-flex items-center gap-3 bg-gray-50 border border-gray-100 rounded-full px-4 py-2">
+              <span className="w-2 h-2 rounded-full bg-[#5A57FF] animate-pulse"></span>
+              <span className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Master in Data Science</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-extrabold leading-tight text-slate-900">
-              Transforming <span className="text-indigo-600">Data</span> into Decision Intelligence.
+            <h1 className="text-7xl font-extrabold text-[#1a1a1a] leading-[1.1] tracking-tighter">
+              Spencer <br /> 
+              <span className="text-gradient">Lim Sze Sing</span>
             </h1>
-            <p className="text-xl text-slate-600 max-w-2xl leading-relaxed mx-auto md:mx-0">
-              Building scalable predictive systems and interactive analytics that turn raw information into competitive advantages. Specializing in Deep Learning and Urban Informatics.
+            <p className="text-gray-500 text-lg max-w-lg leading-relaxed font-medium">
+              From Science to Data: Data Science | Analytics | Domain Expertise (Life Sciences & Manufacturing)
             </p>
-            
-            <div className="flex flex-wrap items-center justify-center md:justify-start gap-6 pt-4">
-              <a href="#projects" className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-xl font-bold transition-all flex items-center gap-2 shadow-lg shadow-indigo-200 hover:-translate-y-1">
-                Explore Projects <i className="fas fa-arrow-right"></i>
-              </a>
-              
-              <div className="flex items-center gap-4 md:border-l md:border-slate-200 md:pl-6">
-                <a href="mailto:alex@example.com" className="w-12 h-12 flex items-center justify-center rounded-full bg-white border border-slate-200 text-slate-600 hover:text-red-500 hover:border-red-500 transition-all shadow-sm group" title="Gmail">
-                  <i className="fas fa-envelope text-lg transition-transform group-hover:scale-110"></i>
-                </a>
-                <a href="https://linkedin.com" target="_blank" className="w-12 h-12 flex items-center justify-center rounded-full bg-white border border-slate-200 text-slate-600 hover:text-[#0a66c2] hover:border-[#0a66c2] transition-all shadow-sm group" title="LinkedIn">
-                  <i className="fab fa-linkedin-in text-lg transition-transform group-hover:scale-110"></i>
-                </a>
-                <a href="https://github.com" target="_blank" className="w-12 h-12 flex items-center justify-center rounded-full bg-white border border-slate-200 text-slate-600 hover:text-black hover:border-black transition-all shadow-sm group" title="GitHub">
-                  <i className="fab fa-github text-lg transition-transform group-hover:scale-110"></i>
-                </a>
-              </div>
+            <div className="flex gap-4 pt-4">
+              <button className="bg-[#5A57FF] text-white px-10 py-4 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl shadow-indigo-200 hover:translate-y-[-2px] transition-all">
+                Get in Touch
+              </button>
+              <button className="border border-gray-200 text-[#1a1a1a] px-10 py-4 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-gray-50 transition-all">
+                View Projects
+              </button>
             </div>
           </div>
-          
-          <div className="flex-1 relative">
-            <div className="relative z-10 w-full max-w-lg mx-auto">
-              <div className="absolute inset-0 bg-indigo-600 rounded-3xl rotate-3 scale-105 opacity-5"></div>
+
+          <div className="flex-1 relative animate-reveal [animation-delay:200ms]">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[80%] bg-[#5A57FF]/5 rounded-[3rem] -rotate-6 z-0"></div>
+            <div className="relative z-10 p-4 bg-white rounded-[4rem] shadow-2xl border border-gray-100">
               <img 
-                src="https://picsum.photos/600/600?random=10" 
-                alt="Profile" 
-                className="rounded-3xl shadow-2xl border-4 border-white relative z-10"
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop" 
+                alt="Spencer Profile" 
+                className="w-full aspect-[4/5] object-cover rounded-[3.5rem] grayscale"
               />
-              <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 animate-bounce [animation-duration:3s] z-20">
-                <div className="flex items-center gap-4">
-                  <div className="bg-green-100 text-green-600 p-3 rounded-full">
-                    <i className="fas fa-code"></i>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-slate-800">1.2M+</div>
-                    <div className="text-xs text-slate-500 font-medium tracking-tight">Data Points Processed</div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* About Me Section */}
-      <section id="about" className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-              <div className="lg:col-span-5 space-y-8">
-                <div className="inline-block px-4 py-1.5 bg-indigo-50 text-indigo-700 rounded-lg text-sm font-bold tracking-wide uppercase">
-                  My Journey
-                </div>
-                <h2 className="text-4xl font-extrabold text-slate-900 leading-tight">
-                  Bridging the gap between <span className="text-indigo-600">raw data</span> and human impact.
-                </h2>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="p-5 rounded-2xl bg-slate-50 border border-slate-100">
-                    <div className="text-indigo-600 font-bold text-lg mb-1">Education</div>
-                    <p className="text-sm text-slate-700 font-semibold leading-tight">M.S. in Data Science</p>
-                    <p className="text-xs text-slate-500 mt-1 italic">Top-tier Research University</p>
-                  </div>
-                  <div className="p-5 rounded-2xl bg-slate-50 border border-slate-100">
-                    <div className="text-indigo-600 font-bold text-lg mb-1">Focus</div>
-                    <p className="text-sm text-slate-700 font-semibold leading-tight">AI & Visual Analytics</p>
-                    <p className="text-xs text-slate-500 mt-1 italic">Scaleable ML Pipelines</p>
-                  </div>
-                </div>
-                <div className="p-6 rounded-2xl bg-indigo-600 text-white shadow-xl shadow-indigo-100">
-                  <blockquote className="italic text-lg font-medium leading-relaxed">
-                    "Alex doesn't just build models; he builds narratives that help organizations see their future through the lens of data."
-                  </blockquote>
-                  <div className="mt-4 text-sm font-bold text-indigo-100 uppercase tracking-widest">— MS Faculty Advisor</div>
-                </div>
-              </div>
-              
-              <div className="lg:col-span-7 space-y-6">
-                <p className="text-xl text-slate-700 leading-relaxed font-medium">
-                  I am a Data Scientist driven by the challenge of making sense of the messy, unstructured world. My expertise lies at the intersection of statistical rigor and creative problem-solving.
-                </p>
-                <div className="space-y-4 text-slate-600 leading-relaxed">
-                  <p>
-                    Fresh out of my Master's program, I've spent thousands of hours mastering the modern data stack—from the intricacies of deep neural networks to the engineering challenges of big data pipelines. My academic research focused on **Urban Informatics**, where I used geospatial modeling to optimize public transit efficiency.
-                  </p>
-                  <p>
-                    I believe that the best data solutions are those that are invisible to the end user—systems that work silently in the background to make decisions more accurate and operations smoother. Whether it's predicting customer churn with 90%+ accuracy or visualizing complex genomics data, my goal is always clarity and impact.
-                  </p>
-                  <p>
-                    When I'm not writing Python or tuning hyperparameters, I'm likely exploring new cities with a camera, contributing to open-source libraries like D3.js, or mentoring undergraduates in introductory statistics.
-                  </p>
-                </div>
-                <div className="pt-6 flex gap-8">
-                  <div className="flex flex-col">
-                    <span className="text-3xl font-bold text-slate-900">4.0</span>
-                    <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">Major GPA</span>
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-3xl font-bold text-slate-900">20+</span>
-                    <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">GitHub Repos</span>
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-3xl font-bold text-slate-900">3</span>
-                    <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">Certifications</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+      {/* SECTION 2: BACKGROUND & SKILLS (DARK) */}
+      <section id="about" className="bg-[#050608] py-32 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-24 space-y-4">
+            <span className="text-[#5A57FF] text-[10px] font-black uppercase tracking-[0.4em]">About Me</span>
+            <h2 className="text-5xl font-extrabold text-white tracking-tight">
+              Crafting AI Solutions & <br /> Cloud Architecture
+            </h2>
+            <p className="text-gray-500 max-w-2xl mx-auto text-sm leading-relaxed font-medium">
+              Senior Data Scientist and AWS Solutions Architect specializing in AI/ML innovations and scalable cloud architecture.
+            </p>
           </div>
-        </div>
-      </section>
 
-      {/* Skills Section */}
-      <SkillsSection />
-
-      {/* Projects Section */}
-      <section id="projects" className="py-24 bg-slate-50">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-8">
-            <div className="max-w-xl">
-              <h2 className="text-4xl font-bold mb-4 text-slate-900">Featured Portfolio</h2>
-              <p className="text-slate-600 text-lg leading-relaxed">
-                A technical showcase of machine learning systems, statistical research, and interactive data visualizations.
+          <div className="flex flex-col lg:flex-row gap-8">
+            <div className="lg:w-[40%] bg-[#0D1117] rounded-[2.5rem] border border-gray-800 p-12 relative overflow-hidden group">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-12 h-12 bg-[#5A57FF] rounded-xl flex items-center justify-center text-white text-xl">
+                  <i className="fas fa-user-graduate"></i>
+                </div>
+                <h3 className="text-2xl font-extrabold text-white">Background</h3>
+              </div>
+              <p className="text-gray-400 text-sm leading-[1.8] mb-8 font-medium">
+                I am a Master of Data Science with a core focus on developing scalable AI/ML solutions. My expertise spans cloud architecture, deep learning, and translating complex mathematical theory into high-impact industrial applications.
               </p>
+              <p className="text-gray-400 text-sm leading-[1.8] mb-12 font-medium">
+                With a background in Biotechnology and a specialization in Geospatial Data Science, I bridge the gap between scientific domain knowledge and advanced data engineering.
+              </p>
+              <div className="pt-8 border-t border-gray-800 flex justify-between">
+                <div>
+                  <p className="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Academic</p>
+                  <p className="text-white text-xs font-bold">M.S. Data Science</p>
+                </div>
+                <div>
+                  <p className="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Specialization</p>
+                  <p className="text-white text-xs font-bold">GIS & ML Ops</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-8">
+              {SKILL_GROUPS.map((group, idx) => (
+                <div key={idx} className="bg-[#0D1117] rounded-[2.5rem] border border-gray-800 p-10 hover:border-[#5A57FF]/30 transition-colors group">
+                  <div className="flex items-center gap-4 mb-8">
+                    <div className="text-gray-500 text-lg group-hover:text-[#5A57FF] transition-colors">
+                      <i className={group.icon}></i>
+                    </div>
+                    <h4 className="text-sm font-black text-white uppercase tracking-widest">{group.title}</h4>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {group.skills.map(skill => (
+                      <span key={skill} className="text-[9px] font-black bg-[#161b22] text-gray-400 border border-gray-800 px-3 py-1.5 rounded-lg uppercase tracking-widest group-hover:border-gray-700 transition-colors">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex justify-center mt-20">
+            <button className="bg-white text-[#0D1117] px-10 py-4 rounded-full font-black text-xs uppercase tracking-widest hover:scale-105 transition-all flex items-center gap-3">
+              Learn More About Me <i className="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 3: PORTFOLIO (LIGHT GRAY) */}
+      <section id="portfolio" className="bg-[#F8F9FF] py-32 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-20">
+            <div className="space-y-4">
+              <span className="text-[#5A57FF] text-[10px] font-black uppercase tracking-[0.4em]">Portfolio</span>
+              <h2 className="text-5xl font-extrabold text-[#1a1a1a] tracking-tight">Technical Explorations</h2>
+              <p className="text-gray-400 font-medium">Deep technical case studies and high-fidelity project implementations.</p>
             </div>
             
-            <div className="flex flex-wrap gap-3 p-1 bg-white rounded-2xl border border-slate-200 shadow-sm">
-              {categories.map(cat => (
-                <button
+            <div className="flex flex-wrap gap-3">
+              {['ALL', 'MACHINE LEARNING', 'DEEP LEARNING', 'DATA VISUALIZATION'].map(cat => (
+                <button 
                   key={cat}
-                  onClick={() => setSelectedCategory(cat)}
-                  className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 ${
-                    selectedCategory === cat 
-                      ? 'bg-indigo-600 text-white shadow-md' 
-                      : 'text-slate-500 hover:bg-slate-100 hover:text-slate-800'
+                  onClick={() => setFilter(cat)}
+                  className={`px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest border transition-all ${
+                    filter === cat 
+                      ? 'bg-[#5A57FF] text-white border-[#5A57FF] shadow-lg shadow-indigo-100' 
+                      : 'bg-white text-gray-400 border-gray-100 hover:border-gray-200'
                   }`}
                 >
                   {cat}
-                  <span className={`px-2 py-0.5 rounded-md text-[10px] font-bold ${
-                    selectedCategory === cat ? 'bg-indigo-500 text-white' : 'bg-slate-100 text-slate-400'
-                  }`}>
-                    {categoryStats[cat]}
-                  </span>
                 </button>
               ))}
             </div>
           </div>
 
-          {/* Active Filters Display */}
-          {(selectedTag || selectedCategory !== 'All') && (
-            <div className="flex flex-wrap items-center gap-3 mb-10 animate-in fade-in slide-in-from-left-4 duration-300">
-              <span className="text-sm font-bold text-slate-400 uppercase tracking-widest mr-2">Applied Filters:</span>
-              
-              {selectedCategory !== 'All' && (
-                <div className="flex items-center gap-2 px-3 py-1.5 bg-indigo-100 text-indigo-700 rounded-lg text-xs font-bold border border-indigo-200">
-                  {selectedCategory}
-                  <button onClick={() => setSelectedCategory('All')} className="hover:text-indigo-900">
-                    <i className="fas fa-times-circle"></i>
-                  </button>
-                </div>
-              )}
-
-              {selectedTag && (
-                <div className="flex items-center gap-2 px-3 py-1.5 bg-emerald-100 text-emerald-700 rounded-lg text-xs font-bold border border-emerald-200">
-                  #{selectedTag}
-                  <button onClick={() => setSelectedTag(null)} className="hover:text-emerald-900">
-                    <i className="fas fa-times-circle"></i>
-                  </button>
-                </div>
-              )}
-
-              <button 
-                onClick={() => {
-                  setSelectedCategory('All');
-                  setSelectedTag(null);
-                }}
-                className="text-xs font-semibold text-slate-400 hover:text-indigo-600 underline underline-offset-4"
-              >
-                Clear all
-              </button>
-            </div>
-          )}
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {filteredProjects.length > 0 ? (
-              filteredProjects.map((project) => (
-                <div 
-                  key={project.id} 
-                  className="group bg-white rounded-3xl overflow-hidden border border-slate-200 hover:border-indigo-200 transition-all hover:shadow-2xl flex flex-col animate-in fade-in slide-in-from-bottom-4 duration-500"
-                >
-                  <div className="aspect-[16/9] relative overflow-hidden bg-slate-100">
-                    <img 
-                      src={project.imageUrl} 
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute top-4 left-4">
-                      <button 
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setSelectedCategory(project.category);
-                        }}
-                        className="px-4 py-1.5 bg-white/95 backdrop-blur-sm rounded-full text-xs font-bold text-indigo-600 shadow-sm border border-slate-100 hover:bg-indigo-600 hover:text-white transition-colors"
-                      >
-                        {project.category}
-                      </button>
-                    </div>
-                  </div>
-                  <div className="p-10 flex-1 flex flex-col">
-                    <h3 className="text-2xl font-bold mb-4 group-hover:text-indigo-600 transition-colors text-slate-800">{project.title}</h3>
-                    <p className="text-slate-600 mb-8 leading-relaxed flex-1">{project.description}</p>
-                    <div className="flex flex-wrap gap-2.5 mb-10">
-                      {project.tags.map(tag => (
-                        <button 
-                          key={tag} 
-                          onClick={() => handleTagClick(tag)}
-                          className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold mono transition-all border ${
-                            selectedTag === tag 
-                              ? 'bg-indigo-600 text-white border-indigo-600 shadow-sm' 
-                              : 'bg-indigo-50/50 text-indigo-700 border-transparent hover:border-indigo-200 hover:bg-indigo-100'
-                          }`}
-                        >
-                          {tag}
-                        </button>
-                      ))}
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <a 
-                        href={project.githubUrl} 
-                        target="_blank"
-                        className="flex-1 inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-black text-white py-4 rounded-xl font-bold transition-all text-sm group"
-                      >
-                        <i className="fab fa-github group-hover:rotate-12 transition-transform"></i> Repository
-                      </a>
-                      {project.demoUrl && (
-                        <a 
-                          href={project.demoUrl} 
-                          target="_blank"
-                          className="flex-1 inline-flex items-center justify-center gap-2 border border-slate-200 hover:bg-slate-50 text-slate-700 py-4 rounded-xl font-bold transition-all text-sm group"
-                        >
-                          <i className="fas fa-external-link-alt group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform"></i> Live Demo
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              ))
-            ) : (
-              <div className="col-span-full py-20 text-center bg-white rounded-3xl border border-dashed border-slate-200">
-                <div className="text-slate-300 text-6xl mb-4">
-                  <i className="fas fa-robot"></i>
-                </div>
-                <h3 className="text-xl font-bold text-slate-700">No matching projects found</h3>
-                <p className="text-slate-500 mt-2">Adjust your filters to see more of my work.</p>
-                <button 
-                  onClick={() => {
-                    setSelectedCategory('All');
-                    setSelectedTag(null);
-                  }}
-                  className="mt-6 px-6 py-2 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-colors shadow-lg shadow-indigo-100"
-                >
-                  Reset All Filters
-                </button>
-              </div>
-            )}
+            {filteredProjects.map(project => (
+              <ProjectCard key={project.id} project={project} onClick={setSelectedProject} />
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-24 bg-indigo-900 text-white overflow-hidden relative">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500 rounded-full blur-[120px] opacity-20 -mr-48 -mt-48"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500 rounded-full blur-[120px] opacity-20 -ml-48 -mb-48"></div>
-        
-        <div className="container mx-auto px-6 relative">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
-            <div className="space-y-2">
-              <div className="text-5xl font-extrabold tracking-tight">95%</div>
-              <div className="text-indigo-200 text-xs font-bold uppercase tracking-widest">Model Accuracy Avg</div>
-            </div>
-            <div className="space-y-2">
-              <div className="text-5xl font-extrabold tracking-tight">12k+</div>
-              <div className="text-indigo-200 text-xs font-bold uppercase tracking-widest">Lines of Python</div>
-            </div>
-            <div className="space-y-2">
-              <div className="text-5xl font-extrabold tracking-tight">5+</div>
-              <div className="text-indigo-200 text-xs font-bold uppercase tracking-widest">Cloud Tech Stack</div>
-            </div>
-            <div className="space-y-2">
-              <div className="text-5xl font-extrabold tracking-tight">2.5k</div>
-              <div className="text-indigo-200 text-xs font-bold uppercase tracking-widest">Research Citations</div>
-            </div>
+      {/* FOOTER */}
+      <footer className="bg-white py-24 border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 text-center space-y-12">
+          <h2 className="text-4xl font-extrabold text-[#1a1a1a]">Let's Connect</h2>
+          <div className="flex justify-center gap-6">
+            <a href="#" className="w-14 h-14 bg-[#0D1117] rounded-full flex items-center justify-center text-white text-xl hover:scale-110 transition-transform">
+              <i className="fas fa-envelope"></i>
+            </a>
+            <a href="#" className="w-14 h-14 bg-[#0D1117] rounded-full flex items-center justify-center text-white text-xl hover:scale-110 transition-transform">
+              <i className="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" className="w-14 h-14 bg-[#0D1117] rounded-full flex items-center justify-center text-white text-xl hover:scale-110 transition-transform">
+              <i className="fab fa-github"></i>
+            </a>
           </div>
-        </div>
-      </section>
-
-      {/* Footer / Contact */}
-      <footer id="contact" className="py-24 bg-white border-t border-slate-100">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center mb-20">
-            <h2 className="text-5xl font-extrabold mb-8 text-slate-900">Let's Build Something Smarter.</h2>
-            <p className="text-xl text-slate-600 mb-12 leading-relaxed">
-              I'm always open to discussing data-driven projects, research collaborations, or high-impact data engineering roles.
-            </p>
-            <div className="flex flex-wrap justify-center gap-8">
-              <a href="mailto:alex@example.com" className="group flex items-center gap-4 px-8 py-5 bg-slate-50 hover:bg-indigo-50 rounded-2xl transition-all border border-slate-100 hover:border-indigo-200">
-                <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-all">
-                  <i className="fas fa-envelope text-xl"></i>
-                </div>
-                <div className="text-left">
-                  <div className="text-xs text-slate-500 font-bold uppercase tracking-wider text-center md:text-left">Email Inquiry</div>
-                  <div className="font-bold text-slate-800 text-lg">alex@example.com</div>
-                </div>
-              </a>
-              <a href="https://linkedin.com" target="_blank" className="group flex items-center gap-4 px-8 py-5 bg-slate-50 hover:bg-indigo-50 rounded-2xl transition-all border border-slate-100 hover:border-indigo-200">
-                <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center text-[#0a66c2] group-hover:bg-[#0a66c2] group-hover:text-white transition-all">
-                  <i className="fab fa-linkedin-in text-xl"></i>
-                </div>
-                <div className="text-left">
-                  <div className="text-xs text-slate-500 font-bold uppercase tracking-wider">Professional Network</div>
-                  <div className="font-bold text-slate-800 text-lg">LinkedIn Profile</div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div className="pt-16 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="flex items-center gap-3">
-              <div className="bg-slate-900 text-white p-2 rounded-lg text-sm shadow-lg shadow-slate-200">
-                <i className="fas fa-database"></i>
-              </div>
-              <div>
-                <span className="font-bold text-slate-900 uppercase tracking-tighter">Alex Data</span>
-                <span className="block text-slate-400 text-xs font-medium">© 2024 Research Portfolio.</span>
-              </div>
-            </div>
-            <div className="flex gap-10 text-slate-400 font-medium">
-              <a href="https://github.com" target="_blank" className="hover:text-black transition-colors flex items-center gap-2">
-                <i className="fab fa-github"></i> GitHub
-              </a>
-              <a href="https://linkedin.com" target="_blank" className="hover:text-[#0a66c2] transition-colors flex items-center gap-2">
-                <i className="fab fa-linkedin"></i> LinkedIn
-              </a>
-              <a href="#" className="hover:text-red-500 transition-colors flex items-center gap-2">
-                <i className="fas fa-envelope"></i> Gmail
-              </a>
-            </div>
-          </div>
+          <p className="text-[10px] text-gray-400 font-bold uppercase tracking-[0.3em] pt-12">
+            © 2024 Spencer Lim Sze Sing / All Rights Reserved.
+          </p>
         </div>
       </footer>
 
-      <ChatWidget />
+      {/* PROJECT MODAL */}
+      {selectedProject && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-[#0D1117]/90 backdrop-blur-xl animate-in fade-in duration-500">
+          <div className="bg-white rounded-[3rem] w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl">
+            <div className="relative h-96">
+              <img src={selectedProject.image} className="w-full h-full object-cover" />
+              <button 
+                onClick={() => setSelectedProject(null)}
+                className="absolute top-8 right-8 w-12 h-12 bg-white rounded-full flex items-center justify-center text-[#1a1a1a] shadow-xl hover:scale-110 transition-all"
+              >
+                <i className="fas fa-times"></i>
+              </button>
+            </div>
+            <div className="p-12 space-y-10">
+              <div className="flex justify-between items-start">
+                <div>
+                  <span className="text-[#5A57FF] text-[10px] font-black uppercase tracking-[0.3em] mb-4 block">Case Study</span>
+                  <h3 className="text-5xl font-extrabold text-[#1a1a1a] tracking-tight">{selectedProject.title}</h3>
+                </div>
+                <div className="flex gap-4">
+                  <div className="text-center">
+                    <p className="text-2xl font-black text-[#1a1a1a]">{selectedProject.stars}</p>
+                    <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest">Stars</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-2xl font-black text-[#1a1a1a]">{selectedProject.forks}</p>
+                    <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest">Forks</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-gray-100">
+                <div className="md:col-span-2 space-y-6">
+                  <h4 className="text-lg font-extrabold text-[#1a1a1a]">Abstract & Methodology</h4>
+                  <p className="text-gray-500 text-lg leading-relaxed">{selectedProject.description}</p>
+                  <div className="p-8 bg-gray-50 rounded-3xl border border-gray-100">
+                    <h5 className="text-[10px] font-black text-[#5A57FF] uppercase tracking-widest mb-4">Technical Breakdown</h5>
+                    <p className="text-sm text-gray-600 leading-relaxed italic">{selectedProject.detailedInsights}</p>
+                  </div>
+                </div>
+                <div className="space-y-8">
+                  <div>
+                    <h4 className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-4">Core Stack</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedProject.tags.map(t => (
+                        <span key={t} className="bg-white border border-gray-200 text-[#1a1a1a] px-4 py-2 rounded-xl text-xs font-bold">{t}</span>
+                      ))}
+                    </div>
+                  </div>
+                  <button className="w-full bg-[#5A57FF] text-white py-5 rounded-[1.5rem] font-black text-sm uppercase tracking-widest shadow-xl shadow-indigo-100 transition-all hover:scale-105 active:scale-95">
+                    View Live Repository
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
