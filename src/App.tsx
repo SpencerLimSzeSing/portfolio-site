@@ -1,8 +1,8 @@
 
 import React, { useState } from 'react';
-import { PROJECTS, SKILL_GROUPS, EXPERIENCES, EDUCATION, CERTIFICATIONS } from './constants';
-import { Project } from './types';
-import ProjectCard from './components/ProjectCard';
+import { PROJECTS, SKILL_GROUPS, EXPERIENCES, EDUCATION, CERTIFICATIONS } from '../constants';
+import { Project } from '../types';
+import ProjectCard from '../components/ProjectCard';
 
 
 const App: React.FC = () => {
