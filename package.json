@@ -1,18 +1,21 @@
 {
   "name": "spencer-portfolio-|-data-science",
-  "private": true,
+  "homepage": "https://spencerlimszesing.github.io/portfolio-site/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "react": "^19.2.3",
-    "@vitejs/plugin-react": "^5.1.2",
-    "react-dom": "^19.2.3",
     "@google/genai": "^1.37.0",
+    "@vitejs/plugin-react": "^5.1.2",
+    "gh-pages": "^6.3.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
     "vite": "^7.3.1"
   },
   "devDependencies": {
