@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Project } from '../types';
 
@@ -11,7 +10,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
   return (
     <div 
       onClick={() => onClick(project)}
-      className="bg-white rounded-[2rem] overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-500 cursor-pointer group"
+      className="bg-white/80 backdrop-blur-sm rounded-[2rem] overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-500 cursor-pointer group"
     >
       <div className="relative h-64 overflow-hidden">
         <img 
@@ -36,7 +35,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
 
         <div className="flex flex-wrap gap-2 mb-6">
           {project.tags.map(tag => (
-            <span key={tag} className="text-[10px] bg-gray-50 text-gray-400 border border-gray-100 px-3 py-1 rounded-md font-bold uppercase tracking-wider">
+            <span key={tag} className="text-[10px] bg-white/50 text-gray-400 border border-gray-100 px-3 py-1 rounded-md font-bold uppercase tracking-wider">
               {tag}
             </span>
           ))}

@@ -3,56 +3,84 @@ import { Project, Skill, Experience } from './types';
 
 export const PROJECTS: Project[] = [
   {
-    id: 'churn-risk',
-    title: 'Churn Risk Architecture',
-    description: 'Predictive pipeline for SaaS retention using XGBoost and SHAP explainability.',
-    tags: ['Python', 'XGBoost', 'SHAP', 'Scikit-Learn'],
+    id: 'crop-yield',
+    title: 'Crop Yield Prediction',
+    description: 'Machine learning model to identify key drivers of global crop yield and to forecast yields across different locations and crop types.',
+    tags: ['Python', 'Machine Learning', 'Crop Yield', 'Scikit-Learn'],
     category: 'MACHINE LEARNING',
-    image: 'https://images.unsplash.com/photo-1551288049-bbbda536339a?q=80&w=800&auto=format&fit=crop',
+    image: 'https://plus.unsplash.com/premium_photo-1722899516572-409bf979e5d6?q=80&w=1058&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     stars: 124,
     forks: 32,
     language: 'Python',
     color: '#3572A5',
-    detailedInsights: 'Integrated SHAP to provide business stakeholders with local explanations for individual customer churn risks.'
+    detailedInsights: 'Built a predictive model using environmental factors such as rainfall, and temperature indicators to estimate crop yield, enabling early assessment of climate impact and supporting proactive decision-making for food security.',
+    repoUrl: 'https://github.com/SpencerLimSzeSing/crop-yield-predition'
   },
   {
-    id: 'lstm-temporal',
-    title: 'LSTM Temporal Forecasting',
-    description: 'Neural network architecture for multi-region retail inventory optimization.',
-    tags: ['TensorFlow', 'LSTM', 'Keras', 'Pandas'],
-    category: 'DEEP LEARNING',
-    image: 'https://images.unsplash.com/photo-1518186239717-2e9b1bd670c3?q=80&w=800&auto=format&fit=crop',
+    id: 'fraud-job',
+    title: 'Fraudulent Job Prediction',
+    description: 'Machine learning and NLP-based system to detect fraudulent online job postings using structured metadata and text analysis.',
+    tags: [
+      'Python',
+      'Scikit-learn',
+      'NLP',
+      'TF-IDF',
+      'Random Forest',
+      'Streamlit'
+    ],
+    category: 'MACHINE LEARNING',
+    image: 'https://images.unsplash.com/photo-1702918883534-9b26c19904ae?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     stars: 89,
     forks: 15,
     language: 'Python',
     color: '#3572A5',
-    detailedInsights: 'Achieved a 15% reduction in overstock by capturing seasonal lag patterns in supply chain data.'
+    detailedInsights: 'Achieved 99.95% accuracy in detecting fraudulent job postings by combining TF-IDF text features with structured job metadata. Tree-based models significantly outperformed linear classifiers, demonstrating strong non-linear relationships in recruitment fraud patterns. The final Random Forest model was deployed via Streamlit for real-time prediction.',
+    repoUrl: 'https://github.com/SpencerLimSzeSing/fraudulent-job-prediction'
   },
   {
-    id: 'urban-crime',
-    title: 'Urban Crime Dynamics',
-    description: 'Geospatial visualization platform analyzing transit-crime correlations.',
-    tags: ['D3.js', 'React', 'Mapbox', 'PostgreSQL'],
-    category: 'DATA VISUALIZATION',
-    image: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=800&auto=format&fit=crop',
+    id: 'rainfall-prediction',
+    title: 'Daily Rainfall Prediction Using Deep Learning',
+    description: 'ANN and ensemble learning–based model for predicting daily rainfall categories using meteorological data in arid regions.',
+    tags: [
+      'Python',
+      'Keras',
+      'TensorFlow',
+      'ANN',
+      'Ensemble Learning',
+      'Stacking',
+      'Scikit-learn'
+    ],
+    category: 'DEEP LEARNING',
+    image: 'https://images.unsplash.com/photo-1622987857832-a31ceda6ad0d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     stars: 210,
     forks: 45,
-    language: 'TypeScript',
-    color: '#3178c6',
-    detailedInsights: 'Mapped 5 years of municipal data to identify "hotspot" corridors near public transit hubs.'
-  },
-  {
-    id: 'genomic-transformer',
-    title: 'Genomic Sequence Transformer',
-    description: 'BERT-based NLP models for identifying functional biological DNA regions.',
-    tags: ['PyTorch', 'Transformers', 'BioPython', 'HuggingFace'],
-    category: 'DEEP LEARNING',
-    image: 'https://images.unsplash.com/photo-1532187875605-2fe3587b1508?q=80&w=800&auto=format&fit=crop',
-    stars: 56,
-    forks: 12,
     language: 'Python',
     color: '#3572A5',
-    detailedInsights: 'Custom tokenization strategy for non-coding DNA sequences, improving motif recognition accuracy.'
+    detailedInsights:
+      'Developed an ANN-based stacking ensemble to classify daily rainfall intensity in arid regions. Addressed severe class imbalance using SMOTE and improved predictive robustness by combining KNN-ANN, RF-ANN, and XGB-ANN models, achieving strong performance across minority rainfall classes.',
+    repoUrl: 'https://github.com/spencer-lim/daily-rainfall-prediction'
+  },
+  {
+    id: 'montage-image',
+    title: 'Astronomical Image Montage Pipeline',
+    description: 'Automated image mosaicking pipeline for generating high-quality astronomical montages using workflow scripting.',
+    tags: [
+      'Python',
+      'Bash',
+      'Image Processing',
+      'Workflow Automation',
+      'Montage',
+      'Scientific Computing'
+    ],
+    category: 'DATA ENGINEERING',
+    image: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=800&auto=format&fit=crop',
+    stars: 120,
+    forks: 28,
+    language: 'Python',
+    color: '#3572A5',
+    detailedInsights:
+      'Built an automated end-to-end montage workflow to reproject, align, and merge astronomical FITS images into seamless mosaics. The pipeline modularized preprocessing, reprojection, and color composition steps, improving reproducibility and reducing manual processing effort for large-scale scientific imaging tasks.',
+    repoUrl: 'https://github.com/spencer-lim/montage-image-pipeline'
   }
 ];
 

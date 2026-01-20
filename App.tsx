@@ -4,20 +4,30 @@ import { PROJECTS, SKILL_GROUPS, EXPERIENCES, EDUCATION, CERTIFICATIONS } from '
 import { Project } from './types';
 import ProjectCard from './components/ProjectCard';
 
+
 const App: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
-  const [filter, setFilter] = useState('ALL');
+  const [filter, setFilter] = useState('ALL')
+  const [copied, setCopied] = useState(false);
 
   const filteredProjects = filter === 'ALL' 
     ? PROJECTS 
     : PROJECTS.filter(p => p.category === filter);
+    
+    const handleCopyEmail = () => {
+    const email = "szesinglim@gmail.com";
+    navigator.clipboard.writeText(email).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
 
   return (
-    <div className="relative w-full overflow-x-hidden">
+    <div className="relative w-full overflow-x-hidden bg-[#FBF9F7]">
       {/* FIXED NAVIGATION BAR */}
-      <nav className="fixed top-0 left-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-gray-100 px-6 py-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <nav className="fixed top-0 left-0 z-50 w-full bg-[#FBF9F7]/80 backdrop-blur-md border-b border-gray-200 px-6 py-4">
+        <div className="max-w-[1600px] mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-[#5A57FF] rounded-lg flex items-center justify-center text-white font-bold">
               <i className="fas fa-cube"></i>
@@ -26,14 +36,14 @@ const App: React.FC = () => {
               SPENCER <span className="text-[#5A57FF]">| PORTFOLIO</span>
             </span>
           </div>
-          <div className="hidden md:flex gap-10 text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">
+          <div className="hidden md:flex gap-10 text-[15px] font-black uppercase tracking-[0.2em] text-gray-400">
             <a href="#" className="hover:text-[#5A57FF] transition-colors">Home</a>
             <a href="#about" className="hover:text-[#5A57FF] transition-colors">About Me</a>
             <a href="#portfolio" className="hover:text-[#5A57FF] transition-colors">Portfolio</a>
           </div>
           <a 
             href="#contact" 
-            className="bg-[#0D1117] text-white px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition-all text-center inline-block"
+            className="bg-[#0D1117] text-white px-8 py-3 rounded-full text-[13px] font-black uppercase tracking-widest hover:scale-105 transition-all text-center inline-block"
           >
             Contact
           </a>
@@ -41,78 +51,79 @@ const App: React.FC = () => {
       </nav>
 
       {/* SECTION 1: HERO (LIGHT) */}
-      <section className="min-h-screen pt-24 bg-white flex flex-col items-center">
-        <div className="max-w-7xl w-full mx-auto px-6 flex-1 flex flex-col md:flex-row items-center gap-20 py-20">
-          <div className="flex-1 space-y-8 animate-reveal">
-            <div className="inline-flex items-center gap-3 bg-gray-50 border border-gray-100 rounded-full px-4 py-2">
-              <span className="w-2 h-2 rounded-full bg-[#5A57FF] animate-pulse"></span>
-              <span className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Master in Data Science</span>
+      <section className="min-h-[85vh] pt-24 bg-[#FBF9F7] flex flex-col items-center">
+        <div className="max-w-[1600px] w-full mx-auto px-6 lg:px-12 flex-1 flex flex-col md:flex-row items-center gap-20 py-20">
+                    <div className="flex-1 relative animate-reveal [animation-delay:200ms] flex justify-center">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[105%] h-[70%] bg-[#5A57FF]/5 rounded-[3rem] -rotate-6 z-0"></div>
+            <div className="relative z-10 p-4 bg-white rounded-[4rem] shadow-2xl border border-gray-100 max-w-sm">
+              <img 
+                src={`${import.meta.env.BASE_URL}DSC02818.jpg`}
+                alt="Spencer Profile" 
+                className="w-full aspect-[4/5] object-cover rounded-[3.8rem]"
+              />
             </div>
-            <h1 className="text-7xl font-extrabold text-[#1a1a1a] leading-[1.1] tracking-tighter">
+          </div>
+          <div className="flex-1 space-y-8 animate-reveal">
+            <div className="inline-flex items-center gap-3 bg-white/50 border border-gray-200 rounded-full px-4 py-2">
+              <span className="w-2 h-2 rounded-full bg-[#5A57FF] animate-pulse"></span>
+              <span className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Open to Work</span>
+            </div>
+            <h1 className="text-7xl lg:text-8xl font-extrabold text-[#1a1a1a] leading-[1.1] tracking-tighter">
               Spencer <br /> 
               <span className="text-gradient">Lim Sze Sing</span>
             </h1>
-            <p className="text-gray-500 text-lg max-w-lg leading-relaxed font-medium">
-              From Science to Data: Data Science | Analytics | Domain Expertise (Life Sciences & Manufacturing)
+            <p className="text-gray-500 text-lg lg:text-xl max-w-2xl leading-relaxed font-medium">
+              From Science to Data: Turning Complexity into Clear, Data-Driven Decisions
             </p>
             <div className="flex gap-4 pt-4">
               <a href="#contact" className="bg-[#5A57FF] text-white px-10 py-4 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl shadow-indigo-200 hover:translate-y-[-2px] transition-all">
                 Get in Touch
               </a>
-              <a href="#portfolio" className="border border-gray-200 text-[#1a1a1a] px-10 py-4 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-gray-50 transition-all">
+              <a href="#portfolio" className="border border-gray-200 bg-white/50 text-[#1a1a1a] px-10 py-4 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-gray-50 transition-all">
                 View Projects
               </a>
-            </div>
-          </div>
-
-          <div className="flex-1 relative animate-reveal [animation-delay:200ms] flex justify-center">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[80%] bg-[#5A57FF]/5 rounded-[3rem] -rotate-6 z-0"></div>
-            <div className="relative z-10 p-4 bg-white rounded-[4rem] shadow-2xl border border-gray-100 max-w-sm">
-              <img 
-                src="https://images.unsplash.com/photo-1766228385031-ad983e6a360e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=600&auto=format&fit=crop" 
-                alt="Spencer Profile" 
-                className="w-full aspect-[4/5] object-cover rounded-[3.5rem] grayscale"
-              />
             </div>
           </div>
         </div>
       </section>
 
       {/* SECTION 2: BACKGROUND & SKILLS (DARK) */}
-      <section id="about" className="bg-[#050608] py-32 px-6">
-        <div className="max-w-7xl mx-auto">
+      <section id="about" className="bg-[#050608] py-32 px-10 lg:px-12">
+        <div className="max-w-[1600px] mx-auto">
           <div className="text-center mb-24 space-y-4">
             <span className="text-[#5A57FF] text-[10px] font-black uppercase tracking-[0.4em]">About Me</span>
-            <h2 className="text-5xl font-extrabold text-white tracking-tight">
-              Crafting AI Solutions & <br /> Cloud Architecture
+            <h2 className="text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
+              Transforming Data into Actionable Insights
             </h2>
-            <p className="text-gray-500 max-w-2xl mx-auto text-sm leading-relaxed font-medium">
-              Senior Data Scientist and AWS Solutions Architect specializing in AI/ML innovations and scalable cloud architecture.
-            </p>
           </div>
 
           <div className="flex flex-col lg:flex-row gap-8">
-            <div className="lg:w-[40%] bg-[#0D1117] rounded-[2.5rem] border border-gray-800 p-12 relative overflow-hidden group">
-              <div className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-12 bg-[#5A57FF] rounded-xl flex items-center justify-center text-white text-xl">
+            <div className="lg:w-[40%] bg-[#0D1117] rounded-[3rem] border border-gray-800 p-12 lg:p-16 relative overflow-hidden group">
+              <div className="flex items-center gap-4 mb-10">
+                <div className="w-14 h-14 bg-[#5A57FF] rounded-2xl flex items-center justify-center text-white text-2xl">
                   <i className="fas fa-user-graduate"></i>
                 </div>
-                <h3 className="text-2xl font-extrabold text-white">Background</h3>
+                <h3 className="text-3xl font-extrabold text-white">Background</h3>
               </div>
-              <p className="text-gray-400 text-sm leading-[1.8] mb-8 font-medium">
-                I am a Master of Data Science with a core focus on developing scalable AI/ML solutions. My expertise spans cloud architecture, deep learning, and translating complex mathematical theory into high-impact industrial applications.
+
+              <p className="text-gray-400 text-base leading-[1.8] mb-8 font-medium text-justify hyphens-auto">
+                Master of Data Science graduate with a multidisciplinary background in R&D, microbiology, sales, and business operations. I specialize in turning complex laboratory and business problems into actionable insights through structured analytical workflows, data validation, and visualization.
               </p>
-              <p className="text-gray-400 text-sm leading-[1.8] mb-12 font-medium">
-                With a background in Biotechnology and a specialization in Geospatial Data Science, I bridge the gap between scientific domain knowledge and advanced data engineering.
+              
+              <p className="text-gray-400 text-base leading-[1.8] mb-8 font-medium text-justify hyphens-auto">
+                With hands-on experience in Python, SQL, machine learning, and Tableau, I have delivered data-backed solutions that accelerated stakeholder decision-making, optimized workflows, and supported regulatory compliance. Fluent in English, Bahasa Malaysia, and Mandarin.
               </p>
+              
+              <p className="text-gray-400 text-base leading-[1.8] mb-8 font-medium text-justify">
+                I bridge scientific domain knowledge and data insights to generate measurable impact.
+              </p>
+
               <div className="pt-8 border-t border-gray-800 flex justify-between">
                 <div>
-                  <p className="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Academic</p>
-                  <p className="text-white text-xs font-bold">M.S. Data Science</p>
-                </div>
-                <div>
-                  <p className="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Specialization</p>
-                  <p className="text-white text-xs font-bold">GIS & ML Ops</p>
+                  <p className="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-3">Domain Expertise</p>
+                  <p className="text-white text-sm leading-relaxed">
+                    Life Sciences, R&D, Laboratory Data Analysis, Root Cause Investigation
+                  </p>
                 </div>
               </div>
             </div>
@@ -128,7 +139,7 @@ const App: React.FC = () => {
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {group.skills.map(skill => (
-                      <span key={skill} className="text-[9px] font-black bg-[#161b22] text-gray-400 border border-gray-800 px-3 py-1.5 rounded-lg uppercase tracking-widest group-hover:border-gray-700 transition-colors">
+                      <span key={skill} className="text-[12px] font-black bg-[#161b22] text-gray-400 border border-gray-800 px-3 py-1.5 rounded-lg uppercase tracking-widest group-hover:border-gray-700 transition-colors">
                         {skill}
                       </span>
                     ))}
@@ -141,7 +152,7 @@ const App: React.FC = () => {
           <div className="flex justify-center mt-20">
             <button 
               onClick={() => setIsResumeOpen(true)}
-              className="bg-white text-[#0D1117] px-10 py-4 rounded-full font-black text-xs uppercase tracking-widest hover:scale-105 transition-all flex items-center gap-3"
+               className="bg-[#FBF9F7] text-[#0D1117] px-10 py-4 rounded-full font-black text-xs uppercase tracking-widest hover:scale-105 transition-all flex items-center gap-3"
             >
               Learn More About Me <i className="fas fa-arrow-right"></i>
             </button>
@@ -150,17 +161,17 @@ const App: React.FC = () => {
       </section>
 
       {/* SECTION 3: PORTFOLIO (LIGHT GRAY) */}
-      <section id="portfolio" className="bg-[#F8F9FF] py-32 px-6">
+      <section id="portfolio" className="bg-[#F2EEEB] py-32 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-20">
             <div className="space-y-4">
               <span className="text-[#5A57FF] text-[10px] font-black uppercase tracking-[0.4em]">Portfolio</span>
-              <h2 className="text-5xl font-extrabold text-[#1a1a1a] tracking-tight">Technical Explorations</h2>
-              <p className="text-gray-400 font-medium">Deep technical case studies and high-fidelity project implementations.</p>
+              <h2 className="text-5xl font-extrabold text-[#1a1a1a] tracking-tight">Projects</h2>
+              <p className="text-gray-400 font-medium">A selection of my recent work in Data Science.</p>
             </div>
             
             <div className="flex flex-wrap gap-3">
-              {['ALL', 'MACHINE LEARNING', 'DEEP LEARNING', 'DATA VISUALIZATION'].map(cat => (
+              {['ALL', 'DATA VISUALIZATION', 'MACHINE LEARNING', 'DEEP LEARNING', 'DATA ENGINEERING'].map(cat => (
                 <button 
                   key={cat}
                   onClick={() => setFilter(cat)}
@@ -186,18 +197,41 @@ const App: React.FC = () => {
       </section>
 
       {/* FOOTER */}
-      <footer id="contact" className="bg-white py-24 border-t border-gray-100">
+      <footer id="contact" className="bg-[#FBF9F7] py-24 border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-6 text-center space-y-12">
           <h2 className="text-4xl font-extrabold text-[#1a1a1a]">Let's Connect</h2>
           <div className="flex justify-center gap-6">
-            <a href="mailto:example@email.com" className="w-14 h-14 bg-[#0D1117] rounded-full flex items-center justify-center text-white text-xl hover:scale-110 transition-transform">
-              <i className="fas fa-envelope"></i>
-            </a>
-            <a href="#" className="w-14 h-14 bg-[#0D1117] rounded-full flex items-center justify-center text-white text-xl hover:scale-110 transition-transform">
+            <div className="relative group/email">
+              <button 
+                onClick={handleCopyEmail}
+                className="w-14 h-14 bg-[#0D1117] rounded-full flex items-center justify-center text-white text-xl hover:scale-110 transition-transform"
+                title="Copy Email Address"
+              >
+                <i className="fas fa-envelope"></i>
+              </button>
+              {copied && (
+                <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-green-500 text-white text-[10px] font-bold px-3 py-1.5 rounded-lg shadow-lg animate-bounce">
+                  Successfully Copied Email Address!
+                </div>
+              )}
+            </div>
+            <a 
+              href="https://www.linkedin.com/in/lim-sze-sing/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-14 h-14 bg-[#0D1117] rounded-full flex items-center justify-center text-white text-xl hover:scale-110 transition-transform"
+              title="LinkedIn Profile"
+            >
               <i className="fab fa-linkedin-in"></i>
             </a>
-            <a href="#" className="w-14 h-14 bg-[#0D1117] rounded-full flex items-center justify-center text-white text-xl hover:scale-110 transition-transform">
-              <i className="fab fa-github"></i>
+            <a 
+              href="https://github.com/SpencerLimSzeSing" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-14 h-14 bg-[#0D1117] rounded-full flex items-center justify-center text-white text-xl hover:scale-110 transition-transform"
+              title="GitHub Profile"
+            >              
+            <i className="fab fa-github"></i>
             </a>
           </div>
           <p className="text-[10px] text-gray-400 font-bold uppercase tracking-[0.3em] pt-12">
@@ -208,18 +242,12 @@ const App: React.FC = () => {
 
       {/* RESUME MODAL */}
       {isResumeOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-[#0D1117]/95 backdrop-blur-xl animate-in fade-in duration-500 overflow-y-auto">
-          <div className="bg-white rounded-[3rem] w-full max-w-5xl my-auto shadow-2xl overflow-hidden flex flex-col lg:flex-row min-h-[80vh]">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-[#0D1117]/95 backdrop-blur-xl animate-in fade-in duration-500 overflow-y-auto" onClick={() => setIsResumeOpen(false)}>
+           <div className="bg-[#FBF9F7] rounded-[3rem] w-full max-w-7xl my-auto shadow-2xl overflow-hidden flex flex-col lg:flex-row min-h-[80vh]" onClick={(e) => e.stopPropagation()}>
             {/* Sidebar info */}
-            <div className="lg:w-1/3 bg-gray-50 p-12 border-r border-gray-100">
+            <div className="lg:w-1/3 bg-white/50 p-12 border-r border-gray-200">
                <div className="mb-12">
-                <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" 
-                  alt="Spencer" 
-                  className="w-24 h-24 rounded-3xl object-cover mb-6 grayscale"
-                />
-                <h3 className="text-2xl font-black text-[#1a1a1a] mb-1">Spencer Lim</h3>
-                <p className="text-gray-400 text-[10px] font-black uppercase tracking-widest">Master in Data Science</p>
+                <h3 className="text-2xl font-black text-[#1a1a1a] mb-1">Spencer Lim Sze Sing</h3>
               </div>
 
               <div className="space-y-10">
@@ -289,8 +317,8 @@ const App: React.FC = () => {
 
       {/* PROJECT MODAL */}
       {selectedProject && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-[#0D1117]/90 backdrop-blur-xl animate-in fade-in duration-500">
-          <div className="bg-white rounded-[3rem] w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-[#0D1117]/90 backdrop-blur-xl animate-in fade-in duration-500" onClick={() => setSelectedProject(null)}>
+          <div className="bg-white rounded-[3rem] w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl" onClick={(e) => e.stopPropagation()}>
             <div className="relative h-96">
               <img src={selectedProject.image} className="w-full h-full object-cover" />
               <button 
@@ -320,10 +348,10 @@ const App: React.FC = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-gray-100">
                 <div className="md:col-span-2 space-y-6">
-                  <h4 className="text-lg font-extrabold text-[#1a1a1a]">Abstract & Methodology</h4>
+                  <h4 className="text-lg font-extrabold text-[#1a1a1a]">Abstract</h4>
                   <p className="text-gray-500 text-lg leading-relaxed">{selectedProject.description}</p>
                   <div className="p-8 bg-gray-50 rounded-3xl border border-gray-100">
-                    <h5 className="text-[10px] font-black text-[#5A57FF] uppercase tracking-widest mb-4">Technical Breakdown</h5>
+                    <h5 className="text-[10px] font-black text-[#5A57FF] uppercase tracking-widest mb-4">Key takeaways</h5>
                     <p className="text-sm text-gray-600 leading-relaxed italic">{selectedProject.detailedInsights}</p>
                   </div>
                 </div>
@@ -336,9 +364,14 @@ const App: React.FC = () => {
                       ))}
                     </div>
                   </div>
-                  <button className="w-full bg-[#5A57FF] text-white py-5 rounded-[1.5rem] font-black text-sm uppercase tracking-widest shadow-xl shadow-indigo-100 transition-all hover:scale-105 active:scale-95">
-                    View Live Repository
-                  </button>
+                  <a 
+                    href={selectedProject.repoUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-full bg-[#5A57FF] text-white py-5 rounded-[1.5rem] font-black text-sm uppercase tracking-widest shadow-xl shadow-indigo-100 transition-all hover:scale-105 active:scale-95 text-center block"
+                  >
+                    View Repository
+                  </a>
                 </div>
               </div>
             </div>

@@ -11,6 +11,7 @@ export interface Project {
   language: string;
   color: string;
   detailedInsights: string;
+  repoUrl: string;
 }
 
 export interface Skill {

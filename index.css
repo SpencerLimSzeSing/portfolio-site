@@ -7,11 +7,12 @@
   --primary: #5A57FF;
   --secondary: #9B89FF;
   --dark: #0D1117;
-  --light: #F8F9FF;
+  --light: #F9F7F4; /* Updated from #F8F9FF to Soft Linen */
+  --bg-main: #FBF9F7; /* New soft background for "white" parts */
 }
 
 body {
-  background-color: white;
+  background-color: var(--bg-main);
   color: #1a1a1a;
   font-family: 'Plus Jakarta Sans', sans-serif;
   margin: 0;
