@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { PROJECTS, SKILL_GROUPS, EXPERIENCES, EDUCATION, CERTIFICATIONS } from '../constants';
 import { Project } from '../types';
 import ProjectCard from '../components/ProjectCard';
-
+import profileImg from './DSC02818.jpg'; 
 
 const App: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -57,7 +57,7 @@ const App: React.FC = () => {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[105%] h-[70%] bg-[#5A57FF]/5 rounded-[3rem] -rotate-6 z-0"></div>
             <div className="relative z-10 p-4 bg-white rounded-[4rem] shadow-2xl border border-gray-100 max-w-sm">
               <img 
-                src={`${import.meta.env.BASE_URL}DSC02818.jpg`}
+                src={profileImg}
                 alt="Spencer Profile" 
                 className="w-full aspect-[4/5] object-cover rounded-[3.8rem]"
               />
