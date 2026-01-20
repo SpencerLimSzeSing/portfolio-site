@@ -2,10 +2,8 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-/**
- * Replace 'portfolio-site' with your actual repository name on GitHub.
- */
-const REPO_NAME = 'portfolio-site';
+
+const REPO_NAME = 'https://spencerlimszesing.github.io/portfolio-site/';
 
 export default defineConfig({
   plugins: [react()],
