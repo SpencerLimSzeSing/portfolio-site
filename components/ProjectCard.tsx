@@ -10,39 +10,40 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
   return (
     <div 
       onClick={() => onClick(project)}
-      className="bg-white/80 backdrop-blur-sm rounded-[2rem] overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-500 cursor-pointer group"
+      className="bg-white/5 backdrop-blur-xl rounded-[3rem] overflow-hidden shadow-2xl border border-white/10 hover:shadow-[0_0_60px_rgba(139,92,246,0.25)] hover:border-[#8B5CF6]/50 hover:-translate-y-4 transition-all duration-700 cursor-pointer group flex flex-col h-full"
     >
-      <div className="relative h-64 overflow-hidden">
+      <div className="relative h-72 overflow-hidden">
         <img 
           src={project.image} 
           alt={project.title} 
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110"
         />
-        <div className="absolute top-4 left-4">
-          <span className="bg-white/90 backdrop-blur-sm text-[#5A57FF] text-[9px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-widest shadow-sm border border-gray-100">
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0D1117] via-transparent to-transparent opacity-60"></div>
+        <div className="absolute top-6 left-6">
+          <span className="bg-[#06B6D4]/20 backdrop-blur-md text-[#06B6D4] text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-widest shadow-lg border border-[#06B6D4]/30 group-hover:bg-[#8B5CF6] group-hover:text-white group-hover:border-[#8B5CF6] transition-all duration-500">
             {project.category}
           </span>
         </div>
       </div>
       
-      <div className="p-8">
-        <h3 className="text-2xl font-bold text-[#1a1a1a] mb-3 group-hover:text-[#5A57FF] transition-colors">
+      <div className="p-10 flex flex-col flex-1">
+        <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#06B6D4] group-hover:to-[#EC4899] transition-all duration-500">
           {project.title}
         </h3>
-        <p className="text-gray-500 text-sm leading-relaxed mb-6">
+        <p className="text-gray-400 text-sm leading-relaxed mb-8 font-medium">
           {project.description}
         </p>
 
-        <div className="flex flex-wrap gap-2 mb-6">
+        <div className="flex flex-wrap gap-2.5 mb-8 mt-auto">
           {project.tags.map(tag => (
-            <span key={tag} className="text-[10px] bg-white/50 text-gray-400 border border-gray-100 px-3 py-1 rounded-md font-bold uppercase tracking-wider">
+            <span key={tag} className="text-[10px] bg-white/5 text-gray-500 border border-white/5 px-3 py-1.5 rounded-xl font-black uppercase tracking-wider group-hover:text-gray-300 group-hover:border-white/20 transition-all">
               {tag}
             </span>
           ))}
         </div>
 
-        <button className="text-[#5A57FF] text-xs font-black uppercase tracking-[0.2em] flex items-center gap-2 group-hover:gap-4 transition-all">
-          Full Case Study <i className="fas fa-arrow-right"></i>
+        <button className="text-transparent bg-clip-text bg-gradient-to-r from-[#06B6D4] to-[#8B5CF6] text-[11px] font-black uppercase tracking-[0.25em] flex items-center gap-3 group-hover:gap-5 transition-all">
+          Full Case Study <i className="fas fa-arrow-right text-[#8B5CF6]"></i>
         </button>
       </div>
     </div>

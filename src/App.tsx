@@ -24,122 +24,125 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full overflow-x-hidden bg-[#FBF9F7]">
+    <div className="relative w-full overflow-x-hidden bg-[#0D1117] text-[#F0F6FC]">
+      {/* AMBIENT BACKGROUND DECORATION */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <div className="absolute top-[-15%] left-[-15%] w-[60%] h-[60%] bg-aurora-1 animate-float blur-[140px] opacity-60"></div>
+        <div className="absolute bottom-[-15%] right-[-15%] w-[60%] h-[60%] bg-aurora-2 animate-float blur-[140px] [animation-delay:5s] opacity-50"></div>
+        <div className="absolute top-[20%] right-[5%] w-[45%] h-[45%] bg-aurora-3 animate-float blur-[120px] [animation-delay:10s] opacity-40"></div>
+      </div>
+
       {/* FIXED NAVIGATION BAR */}
-      <nav className="fixed top-0 left-0 z-50 w-full bg-[#FBF9F7]/80 backdrop-blur-md border-b border-gray-200 px-6 py-4">
+      <nav className="fixed top-0 left-0 z-50 w-full bg-[#0D1117]/40 backdrop-blur-2xl border-b border-white/5 px-6 py-4">
         <div className="max-w-[1600px] mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-[#5A57FF] rounded-lg flex items-center justify-center text-white font-bold">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-[#06B6D4] via-[#8B5CF6] to-[#EC4899] rounded-xl flex items-center justify-center text-white shadow-lg shadow-purple-500/20">
               <i className="fas fa-cube"></i>
             </div>
-            <span className="font-extrabold text-xl tracking-tighter text-[#1a1a1a]">
-              SPENCER <span className="text-[#5A57FF]">| PORTFOLIO</span>
+            <span className="font-extrabold text-xl tracking-tighter text-white">
+              SPENCER <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#06B6D4] to-[#8B5CF6]">| PORTFOLIO</span>
             </span>
           </div>
-          <div className="hidden md:flex gap-10 text-[15px] font-black uppercase tracking-[0.2em] text-gray-400">
-            <a href="#" className="hover:text-[#5A57FF] transition-colors">Home</a>
-            <a href="#about" className="hover:text-[#5A57FF] transition-colors">About Me</a>
-            <a href="#portfolio" className="hover:text-[#5A57FF] transition-colors">Portfolio</a>
+          <div className="hidden md:flex gap-10 text-[12px] font-black uppercase tracking-[0.25em] text-gray-400">
+            <a href="#" className="hover:text-white hover:scale-110 transition-all">Home</a>
+            <a href="#about" className="hover:text-white hover:scale-110 transition-all">About Me</a>
+            <a href="#portfolio" className="hover:text-white hover:scale-110 transition-all">Portfolio</a>
           </div>
           <a 
             href="#contact" 
-            className="bg-[#0D1117] text-white px-8 py-3 rounded-full text-[13px] font-black uppercase tracking-widest hover:scale-105 transition-all text-center inline-block"
+            className="bg-white text-[#0D1117] px-8 py-3 rounded-full text-[12px] font-black uppercase tracking-widest hover:scale-110 active:scale-95 transition-all text-center inline-block shadow-xl shadow-white/5"
           >
             Contact
           </a>
         </div>
       </nav>
 
-      {/* SECTION 1: HERO (LIGHT) */}
-      <section className="min-h-[85vh] pt-24 bg-[#FBF9F7] flex flex-col items-center">
-        <div className="max-w-[1600px] w-full mx-auto px-6 lg:px-12 flex-1 flex flex-col md:flex-row items-center gap-20 py-20">
-                    <div className="flex-1 relative animate-reveal [animation-delay:200ms] flex justify-center">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[105%] h-[70%] bg-[#5A57FF]/5 rounded-[3rem] -rotate-6 z-0"></div>
-            <div className="relative z-10 p-4 bg-white rounded-[4rem] shadow-2xl border border-gray-100 max-w-sm">
+      {/* SECTION 1: HERO */}
+      <section className="relative min-h-[95vh] pt-24 flex flex-col items-center justify-center overflow-hidden">
+        <div className="max-w-[1600px] w-full mx-auto px-6 lg:px-12 z-10 flex flex-col md:flex-row items-center gap-20 py-20">
+          <div className="flex-1 relative animate-reveal [animation-delay:300ms] flex justify-center order-2 md:order-1">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[115%] h-[85%] bg-gradient-to-r from-[#06B6D4]/15 via-[#8B5CF6]/15 to-[#EC4899]/15 rounded-[5rem] -rotate-6 blur-3xl z-0"></div>
+            <div className="relative z-10 p-5 bg-white/5 backdrop-blur-md rounded-[5rem] shadow-2xl border border-white/10 max-w-sm hover:rotate-3 transition-transform duration-700">
               <img 
                 src={profileImg}
-                alt="Spencer Profile" 
-                className="w-full aspect-[4/5] object-cover rounded-[3.8rem]"
+                className="rounded-[4.5rem] grayscale-[0.1] contrast-[1.1] hover:grayscale-0 transition-all duration-700"
               />
             </div>
           </div>
-          <div className="flex-1 space-y-8 animate-reveal">
-            <div className="inline-flex items-center gap-3 bg-white/50 border border-gray-200 rounded-full px-4 py-2">
-              <span className="w-2 h-2 rounded-full bg-[#5A57FF] animate-pulse"></span>
-              <span className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Open to Work</span>
+          <div className="flex-1 space-y-10 animate-reveal order-1 md:order-2">
+            <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-full px-6 py-3">
+              <span className="w-3 h-3 rounded-full bg-[#06B6D4] animate-pulse shadow-[0_0_15px_#06B6D4]"></span>
+              <span className="text-[12px] font-black text-gray-200 uppercase tracking-[0.3em]">Open to Work</span>
             </div>
-            <h1 className="text-7xl lg:text-8xl font-extrabold text-[#1a1a1a] leading-[1.1] tracking-tighter">
+            <h1 className="text-7xl lg:text-9xl font-extrabold text-white leading-[0.9] tracking-tighter">
               Spencer <br /> 
               <span className="text-gradient">Lim Sze Sing</span>
             </h1>
-            <p className="text-gray-500 text-lg lg:text-xl max-w-2xl leading-relaxed font-medium">
-              From Science to Data: Turning Complexity into Clear, Data-Driven Decisions
+            <p className="text-gray-300 text-lg lg:text-2xl max-w-2xl leading-relaxed font-medium">
+              Bridging the gap between scientific domain expertise and scalable data-driven solutions.
             </p>
-            <div className="flex gap-4 pt-4">
-              <a href="#contact" className="bg-[#5A57FF] text-white px-10 py-4 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl shadow-indigo-200 hover:translate-y-[-2px] transition-all">
-                Get in Touch
+            <div className="flex flex-wrap gap-6 pt-6">
+              <a href="#contact" className="bg-gradient-to-r from-[#06B6D4] via-[#8B5CF6] to-[#EC4899] text-white px-12 py-5 rounded-2xl font-black text-xs uppercase tracking-widest shadow-2xl shadow-purple-500/40 hover:translate-y-[-6px] hover:shadow-purple-500/60 transition-all">
+                Let's Collaborate
               </a>
-              <a href="#portfolio" className="border border-gray-200 bg-white/50 text-[#1a1a1a] px-10 py-4 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-gray-50 transition-all">
-                View Projects
+              <a href="#portfolio" className="border border-white/15 bg-white/5 backdrop-blur-xl text-white px-12 py-5 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-white/10 hover:translate-y-[-4px] transition-all">
+                Explore Work
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 2: BACKGROUND & SKILLS (DARK) */}
-      <section id="about" className="bg-[#050608] py-32 px-10 lg:px-12">
+      {/* SECTION 2: ABOUT */}
+      <section id="about" className="relative z-10 bg-[#050608]/90 backdrop-blur-3xl py-40 px-10 lg:px-12 border-y border-white/5">
         <div className="max-w-[1600px] mx-auto">
-          <div className="text-center mb-24 space-y-4">
-            <span className="text-[#5A57FF] text-[10px] font-black uppercase tracking-[0.4em]">About Me</span>
-            <h2 className="text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
-              Transforming Data into Actionable Insights
+          <div className="text-center mb-28 space-y-6">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#06B6D4] to-[#EC4899] text-[12px] font-black uppercase tracking-[0.6em]">ABOUT ME</span>
+            <h2 className="text-6xl lg:text-8xl font-extrabold text-white tracking-tight">
+              Data is the bridge to clarity
             </h2>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-8">
-            <div className="lg:w-[40%] bg-[#0D1117] rounded-[3rem] border border-gray-800 p-12 lg:p-16 relative overflow-hidden group">
-              <div className="flex items-center gap-4 mb-10">
-                <div className="w-14 h-14 bg-[#5A57FF] rounded-2xl flex items-center justify-center text-white text-2xl">
+          <div className="flex flex-col lg:flex-row gap-12">
+            <div className="lg:w-[45%] bg-[#0D1117] rounded-[5rem] border border-white/10 p-14 lg:p-20 relative overflow-hidden group shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+              <div className="absolute top-0 right-0 w-80 h-80 bg-[#06B6D4]/10 blur-[100px] group-hover:bg-[#8B5CF6]/15 transition-colors duration-1000"></div>
+              <div className="flex items-center gap-6 mb-14">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#06B6D4] via-[#8B5CF6] to-[#EC4899] rounded-2xl flex items-center justify-center text-white text-3xl shadow-xl">
                   <i className="fas fa-user-graduate"></i>
                 </div>
-                <h3 className="text-3xl font-extrabold text-white">Background</h3>
+                <h3 className="text-4xl font-extrabold text-white">Background</h3>
               </div>
 
-              <p className="text-gray-400 text-base leading-[1.8] mb-8 font-medium text-justify hyphens-auto">
-                Master of Data Science graduate with a multidisciplinary background in R&D, microbiology, sales, and business operations. I specialize in turning complex laboratory and business problems into actionable insights through structured analytical workflows, data validation, and visualization.
-              </p>
-              
-              <p className="text-gray-400 text-base leading-[1.8] mb-8 font-medium text-justify hyphens-auto">
-                With hands-on experience in Python, SQL, machine learning, and Tableau, I have delivered data-backed solutions that accelerated stakeholder decision-making, optimized workflows, and supported regulatory compliance. Fluent in English, Bahasa Malaysia, and Mandarin.
-              </p>
-              
-              <p className="text-gray-400 text-base leading-[1.8] mb-8 font-medium text-justify">
-                I bridge scientific domain knowledge and data insights to generate measurable impact.
-              </p>
+              <div className="space-y-10">
+                <p className="text-gray-300 text-lg lg:text-xl leading-[1.8] font-medium text-justify">
+                  Master of Data Science graduate with a multidisciplinary background in R&D, microbiology, sales, and business operations. I specialize in turning complex laboratory and business problems into actionable insights through structured analytical workflows, data validation, and visualization.
+                </p>
+                <p className="text-gray-300 text-lg lg:text-xl leading-[1.8] font-medium text-justify">
+                  With hands-on experience in Python, SQL, machine learning, and Tableau, I have delivered data-backed solutions that accelerated stakeholder decision-making, optimized workflows, and supported regulatory compliance. Fluent in English, Bahasa Malaysia, and Mandarin.
+                </p>
+              </div>
 
-              <div className="pt-8 border-t border-gray-800 flex justify-between">
-                <div>
-                  <p className="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-3">Domain Expertise</p>
-                  <p className="text-white text-sm leading-relaxed">
-                    Life Sciences, R&D, Laboratory Data Analysis, Root Cause Investigation
-                  </p>
-                </div>
+              <div className="pt-14 mt-14 border-t border-white/10">
+                <p className="text-[12px] font-black text-gray-500 uppercase tracking-widest mb-4">Core Domain</p>
+                <p className="text-[#06B6D4] text-xl font-bold tracking-tight">
+                  Life Sciences & Analytical R&D
+                </p>
               </div>
             </div>
 
-            <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-10">
               {SKILL_GROUPS.map((group, idx) => (
-                <div key={idx} className="bg-[#0D1117] rounded-[2.5rem] border border-gray-800 p-10 hover:border-[#5A57FF]/30 transition-colors group">
-                  <div className="flex items-center gap-4 mb-8">
-                    <div className="text-gray-500 text-lg group-hover:text-[#5A57FF] transition-colors">
+                <div key={idx} className="glass-card rounded-[4rem] p-12 transition-all duration-700 group relative overflow-hidden flex flex-col justify-center">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#8B5CF6]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="flex items-center gap-6 mb-12 relative z-10">
+                    <div className="text-[#06B6D4] text-3xl group-hover:text-[#EC4899] group-hover:scale-110 transition-all duration-500">
                       <i className={group.icon}></i>
                     </div>
-                    <h4 className="text-sm font-black text-white uppercase tracking-widest">{group.title}</h4>
+                    <h4 className="text-sm font-black text-white uppercase tracking-[0.25em]">{group.title}</h4>
                   </div>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-3 relative z-10">
                     {group.skills.map(skill => (
-                      <span key={skill} className="text-[12px] font-black bg-[#161b22] text-gray-400 border border-gray-800 px-3 py-1.5 rounded-lg uppercase tracking-widest group-hover:border-gray-700 transition-colors">
+                      <span key={skill} className="text-[11px] font-black bg-white/5 text-gray-300 border border-white/5 px-4 py-2.5 rounded-2xl uppercase tracking-widest hover:text-white hover:bg-[#8B5CF6]/20 hover:border-[#8B5CF6]/50 transition-all cursor-default">
                         {skill}
                       </span>
                     ))}
@@ -148,8 +151,8 @@ const App: React.FC = () => {
               ))}
             </div>
           </div>
-
-          <div className="flex justify-center mt-20">
+          
+           <div className="flex justify-center mt-20">
             <button 
               onClick={() => setIsResumeOpen(true)}
                className="bg-[#FBF9F7] text-[#0D1117] px-10 py-4 rounded-full font-black text-xs uppercase tracking-widest hover:scale-105 transition-all flex items-center gap-3"
@@ -157,17 +160,18 @@ const App: React.FC = () => {
               Learn More About Me <i className="fas fa-arrow-right"></i>
             </button>
           </div>
+
         </div>
       </section>
 
-      {/* SECTION 3: PORTFOLIO (LIGHT GRAY) */}
-      <section id="portfolio" className="bg-[#F2EEEB] py-32 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-20">
-            <div className="space-y-4">
-              <span className="text-[#5A57FF] text-[10px] font-black uppercase tracking-[0.4em]">Portfolio</span>
-              <h2 className="text-5xl font-extrabold text-[#1a1a1a] tracking-tight">Projects</h2>
-              <p className="text-gray-400 font-medium">A selection of my recent work in Data Science.</p>
+      {/* SECTION 3: PORTFOLIO */}
+      <section id="portfolio" className="relative py-40 px-6">
+        <div className="max-w-[1600px] mx-auto">
+          <div className="flex flex-col lg:flex-row justify-between items-end gap-12 mb-32">
+            <div className="space-y-6">
+              <span className="text-[#EC4899] text-[12px] font-black uppercase tracking-[0.7em]">Case Studies</span>
+              <h2 className="text-6xl lg:text-7xl font-extrabold text-white tracking-tight">Projects</h2>
+              <p className="text-gray-400 text-xl font-medium">A selection of my recent work in Data Science.</p>
             </div>
             
             <div className="flex flex-wrap gap-3">
@@ -175,11 +179,11 @@ const App: React.FC = () => {
                 <button 
                   key={cat}
                   onClick={() => setFilter(cat)}
-                  className={`px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest border transition-all ${
+                  className={`px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${
                     filter === cat 
-                      ? 'bg-[#5A57FF] text-white border-[#5A57FF] shadow-lg shadow-indigo-100' 
-                      : 'bg-white text-gray-400 border-gray-100 hover:border-gray-200'
-                  }`}
+                      ? 'bg-gradient-to-r from-[#06B6D4] via-[#8B5CF6] to-[#EC4899] text-white border-transparent shadow-lg shadow-purple-500/20' 
+                      : 'bg-white/5 text-gray-500 border border-white/5 hover:border-white/20 hover:text-white'
+                   }`}
                 >
                   {cat}
                 </button>
@@ -187,8 +191,7 @@ const App: React.FC = () => {
             </div>
           </div>
 
-          {/* 4x1 Column Grid Layout */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
             {filteredProjects.map(project => (
               <ProjectCard key={project.id} project={project} onClick={setSelectedProject} />
             ))}
@@ -197,21 +200,25 @@ const App: React.FC = () => {
       </section>
 
       {/* FOOTER */}
-      <footer id="contact" className="bg-[#FBF9F7] py-24 border-t border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 text-center space-y-12">
-          <h2 className="text-4xl font-extrabold text-[#1a1a1a]">Let's Connect</h2>
-          <div className="flex justify-center gap-6">
-            <div className="relative group/email">
+      <footer id="contact" className="relative bg-[#050608] py-40 border-t border-white/5 overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[2px] bg-gradient-to-r from-transparent via-[#06B6D4] to-transparent opacity-50"></div>
+        <div className="max-w-7xl mx-auto px-6 text-center space-y-20">
+          <div className="space-y-6">
+            <h2 className="text-7xl font-extrabold text-white tracking-tighter">Let's Connect.</h2>
+            <p className="text-gray-400 text-2xl font-medium">:)</p>
+          </div>
+          <div className="flex justify-center gap-10">
+            <div className="relative group">
               <button 
                 onClick={handleCopyEmail}
-                className="w-14 h-14 bg-[#0D1117] rounded-full flex items-center justify-center text-white text-xl hover:scale-110 transition-transform"
-                title="Copy Email Address"
+                className="w-20 h-20 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] flex items-center justify-center text-white text-3xl hover:bg-[#06B6D4]/20 hover:border-[#06B6D4]/50 hover:translate-y-[-10px] hover:shadow-[0_20px_40px_rgba(6,182,212,0.3)] transition-all duration-500"
+                title="Copy Email"
               >
                 <i className="fas fa-envelope"></i>
               </button>
               {copied && (
-                <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-green-500 text-white text-[10px] font-bold px-3 py-1.5 rounded-lg shadow-lg animate-bounce">
-                  Successfully Copied Email Address!
+                <div className="absolute -top-16 left-1/2 -translate-x-1/2 bg-[#06B6D4] text-white text-[12px] font-bold px-6 py-3 rounded-2xl shadow-2xl whitespace-nowrap animate-bounce">
+                  Email Copied!
                 </div>
               )}
             </div>
@@ -219,8 +226,7 @@ const App: React.FC = () => {
               href="https://www.linkedin.com/in/lim-sze-sing/" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="w-14 h-14 bg-[#0D1117] rounded-full flex items-center justify-center text-white text-xl hover:scale-110 transition-transform"
-              title="LinkedIn Profile"
+              className="w-20 h-20 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] flex items-center justify-center text-white text-3xl hover:bg-[#8B5CF6]/20 hover:border-[#8B5CF6]/50 hover:translate-y-[-10px] hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] transition-all duration-500"
             >
               <i className="fab fa-linkedin-in"></i>
             </a>
@@ -228,102 +234,26 @@ const App: React.FC = () => {
               href="https://github.com/SpencerLimSzeSing" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="w-14 h-14 bg-[#0D1117] rounded-full flex items-center justify-center text-white text-xl hover:scale-110 transition-transform"
-              title="GitHub Profile"
+              className="w-20 h-20 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] flex items-center justify-center text-white text-3xl hover:bg-[#EC4899]/20 hover:border-[#EC4899]/50 hover:translate-y-[-10px] hover:shadow-[0_20px_40px_rgba(236,72,153,0.3)] transition-all duration-500"
             >              
-            <i className="fab fa-github"></i>
+              <i className="fab fa-github"></i>
             </a>
           </div>
-          <p className="text-[10px] text-gray-400 font-bold uppercase tracking-[0.3em] pt-12">
-            © 2026 Spencer Lim Sze Sing / All Rights Reserved.
+          <p className="text-[12px] text-gray-600 font-bold uppercase tracking-[0.5em] pt-16">
+            © 2026 Spencer Lim Sze Sing — All Rights Reserved
           </p>
         </div>
       </footer>
 
-      {/* RESUME MODAL */}
-      {isResumeOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-[#0D1117]/95 backdrop-blur-xl animate-in fade-in duration-500 overflow-y-auto" onClick={() => setIsResumeOpen(false)}>
-           <div className="bg-[#FBF9F7] rounded-[3rem] w-full max-w-7xl my-auto shadow-2xl overflow-hidden flex flex-col lg:flex-row min-h-[80vh]" onClick={(e) => e.stopPropagation()}>
-            {/* Sidebar info */}
-            <div className="lg:w-1/3 bg-white/50 p-12 border-r border-gray-200">
-               <div className="mb-12">
-                <h3 className="text-2xl font-black text-[#1a1a1a] mb-1">Spencer Lim Sze Sing</h3>
-              </div>
-
-              <div className="space-y-10">
-                <div>
-                  <h4 className="text-[10px] font-black text-[#5A57FF] uppercase tracking-widest mb-4">Education</h4>
-                  {EDUCATION.map((edu, idx) => (
-                    <div key={idx} className="mb-6">
-                      <p className="text-sm font-extrabold text-[#1a1a1a]">{edu.degree}</p>
-                      <p className="text-xs text-gray-500 font-bold">{edu.school}</p>
-                      <p className="text-[10px] text-gray-400 mt-1">{edu.year}</p>
-                    </div>
-                  ))}
-                </div>
-
-                <div>
-                  <h4 className="text-[10px] font-black text-[#5A57FF] uppercase tracking-widest mb-4">Certifications</h4>
-                  <ul className="space-y-3">
-                    {CERTIFICATIONS.map((cert, idx) => (
-                      <li key={idx} className="text-xs text-gray-600 font-medium flex gap-2">
-                        <span className="text-[#5A57FF]">•</span> {cert}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Main Content */}
-            <div className="flex-1 p-12 relative">
-              <button 
-                onClick={() => setIsResumeOpen(false)}
-                className="absolute top-8 right-8 w-12 h-12 bg-white border border-gray-100 rounded-full flex items-center justify-center text-[#1a1a1a] shadow-lg hover:scale-110 transition-all z-10"
-              >
-                <i className="fas fa-times"></i>
-              </button>
-
-              <h3 className="text-4xl font-extrabold text-[#1a1a1a] mb-12 tracking-tight">Professional Experience</h3>
-              
-              <div className="space-y-12">
-                {EXPERIENCES.map((exp, idx) => (
-                  <div key={idx} className="relative pl-8 border-l-2 border-gray-100 pb-2">
-                    <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-white border-4 border-[#5A57FF]"></div>
-                    <div className="flex justify-between items-start mb-4">
-                      <div>
-                        <h4 className="text-xl font-bold text-[#1a1a1a]">{exp.role}</h4>
-                        <p className="text-[#5A57FF] text-sm font-extrabold">{exp.company}</p>
-                      </div>
-                      <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-100">
-                        {exp.period}
-                      </span>
-                    </div>
-                    <ul className="space-y-3">
-                      {exp.description.map((item, i) => (
-                        <li key={i} className="text-gray-500 text-sm leading-relaxed">
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* PROJECT MODAL */}
       {selectedProject && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-[#0D1117]/90 backdrop-blur-xl animate-in fade-in duration-500" onClick={() => setSelectedProject(null)}>
-          <div className="bg-white rounded-[3rem] w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl" onClick={(e) => e.stopPropagation()}>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-[#050608]/90 backdrop-blur-xl animate-in fade-in duration-500" onClick={() => setSelectedProject(null)}>
+          <div className="bg-[#0D1117] border border-white/10 rounded-[3rem] w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl" onClick={(e) => e.stopPropagation()}>
             <div className="relative h-96">
               <img src={selectedProject.image} className="w-full h-full object-cover" />
               <button 
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-8 right-8 w-12 h-12 bg-white rounded-full flex items-center justify-center text-[#1a1a1a] shadow-xl hover:scale-110 transition-all"
+                className="absolute top-8 right-8 w-12 h-12 bg-black/50 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-white shadow-xl hover:scale-110 transition-all"
               >
                 <i className="fas fa-times"></i>
               </button>
@@ -331,48 +261,72 @@ const App: React.FC = () => {
             <div className="p-12 space-y-10">
               <div className="flex justify-between items-start">
                 <div>
-                  <span className="text-[#5A57FF] text-[10px] font-black uppercase tracking-[0.3em] mb-4 block">Case Study</span>
-                  <h3 className="text-5xl font-extrabold text-[#1a1a1a] tracking-tight">{selectedProject.title}</h3>
-                </div>
-                <div className="flex gap-4">
-                  <div className="text-center">
-                    <p className="text-2xl font-black text-[#1a1a1a]">{selectedProject.stars}</p>
-                    <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest">Stars</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-2xl font-black text-[#1a1a1a]">{selectedProject.forks}</p>
-                    <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest">Forks</p>
-                  </div>
+                  <span className="text-gradient text-[10px] font-black uppercase tracking-[0.3em] mb-4 block">Case Study</span>
+                  <h3 className="text-5xl font-extrabold text-white tracking-tight">{selectedProject.title}</h3>
                 </div>
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-gray-100">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-white/10">
                 <div className="md:col-span-2 space-y-6">
-                  <h4 className="text-lg font-extrabold text-[#1a1a1a]">Abstract</h4>
-                  <p className="text-gray-500 text-lg leading-relaxed">{selectedProject.description}</p>
-                  <div className="p-8 bg-gray-50 rounded-3xl border border-gray-100">
-                    <h5 className="text-[10px] font-black text-[#5A57FF] uppercase tracking-widest mb-4">Key takeaways</h5>
-                    <p className="text-sm text-gray-600 leading-relaxed italic">{selectedProject.detailedInsights}</p>
-                  </div>
+                  <h4 className="text-lg font-extrabold text-white">Abstract</h4>
+                  <p className="text-gray-400 text-lg leading-relaxed">{selectedProject.description}</p>
                 </div>
                 <div className="space-y-8">
-                  <div>
-                    <h4 className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-4">Core Stack</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {selectedProject.tags.map(t => (
-                        <span key={t} className="bg-white border border-gray-200 text-[#1a1a1a] px-4 py-2 rounded-xl text-xs font-bold">{t}</span>
-                      ))}
-                    </div>
-                  </div>
-                  <a 
-                    href={selectedProject.repoUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="w-full bg-[#5A57FF] text-white py-5 rounded-[1.5rem] font-black text-sm uppercase tracking-widest shadow-xl shadow-indigo-100 transition-all hover:scale-105 active:scale-95 text-center block"
-                  >
-                    View Repository
-                  </a>
+                  <a href={selectedProject.repoUrl} target="_blank" rel="noopener noreferrer" className="w-full bg-gradient-to-r from-[#06B6D4] to-[#8B5CF6] text-white py-5 rounded-[1.5rem] font-black text-sm uppercase tracking-widest shadow-xl shadow-purple-500/40 transition-all hover:scale-105 text-center block">View Repository</a>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* RESUME MODAL */}
+      {isResumeOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-[#050608]/95 backdrop-blur-xl animate-in fade-in duration-500 overflow-y-auto" onClick={() => setIsResumeOpen(false)}>
+          <div className="bg-[#0D1117] border border-white/10 rounded-[3rem] w-full max-w-7xl my-auto shadow-2xl overflow-hidden flex flex-col lg:flex-row min-h-[80vh]" onClick={(e) => e.stopPropagation()}>
+            <div className="lg:w-1/3 bg-white/5 p-12 border-r border-white/10">
+              <h3 className="text-2xl font-black text-white mb-12">Spencer Lim Sze Sing</h3>
+              <div>
+                <h4 className="text-[10px] font-black text-[#06B6D4] uppercase tracking-widest mb-6">Education</h4>
+                {EDUCATION.map((edu, idx) => (
+                  <div key={idx} className="mb-8">
+                    <p className="text-sm font-extrabold text-white">{edu.degree}</p>
+                    <p className="text-xs text-gray-400 font-bold">{edu.school}</p>
+                    <p className="text-[10px] text-gray-500 mt-1">{edu.year}</p>
+                  </div>
+                ))}
+              </div>
+
+               <div>
+                  <h4 className="text-[10px] font-black text-[#06B6D4] uppercase tracking-widest mb-6">Certifications</h4>
+                  <ul className="space-y-3">
+                    {CERTIFICATIONS.map((cert, idx) => (
+                      <li key={idx} className="text-xs text-white-400 font-bold">
+                        <span className="text-[#06B6D4]">•</span> {cert}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+            </div>
+            <div className="flex-1 p-12 relative overflow-y-auto">
+              <button onClick={() => setIsResumeOpen(false)} className="absolute top-8 right-8 w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-white hover:scale-110 transition-all"><i className="fas fa-times"></i></button>
+              <h3 className="text-4xl font-extrabold text-white mb-12">Professional Experience</h3>
+              <div className="space-y-12">
+                {EXPERIENCES.map((exp, idx) => (
+                  <div key={idx} className="relative pl-8 border-l-2 border-white/5 pb-2">
+                    <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-[#0D1117] border-4 border-[#8B5CF6]"></div>
+                    <div className="flex justify-between items-start mb-4">
+                      <div>
+                        <h4 className="text-xl font-bold text-white">{exp.role}</h4>
+                        <p className="text-[#06B6D4] text-sm font-extrabold">{exp.company}</p>
+                      </div>
+                      <span className="text-[10px] font-black text-gray-500 uppercase tracking-widest bg-white/5 px-3 py-1.5 rounded-lg border border-white/5">{exp.period}</span>
+                    </div>
+                    <ul className="space-y-3">
+                      {exp.description.map((item, i) => (<li key={i} className="text-gray-400 text-sm leading-relaxed">{item}</li>))}
+                    </ul>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
