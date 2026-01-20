@@ -86,79 +86,129 @@ export const PROJECTS: Project[] = [
 
 export const SKILL_GROUPS = [
   {
-    title: 'AI & Machine Learning',
+    title: 'Machine Learning & Data Analytics',
     icon: 'fas fa-brain',
-    skills: ['NEURAL NETWORKS', 'REINFORCEMENT LEARNING', 'DEEP LEARNING', 'GENERATIVE AI', 'NEURO-SYMBOLIC AI', 'CAUSAL INFERENCE', 'LLM FINE-TUNING']
-  },
-  {
-    title: 'Cloud Architecture & MLOps',
-    icon: 'fas fa-cloud',
-    skills: ['AWS SAGEMAKER', 'DOCKER/KUBERNETES', 'CLOUDFORMATION', 'VECTOR DBS', 'GPU ACCELERATION', 'CI/CD', 'DOCKER', 'GIT']
+    skills: [
+      'Feature Engineering',
+      'Dimensionality Reduction',
+      'Clustering',
+      'Statistical Modeling', 
+      'Data Visualization',
+      'Artificial Neural Networks (ANN)',
+      'Ensemble Learning'
+
+    ]
   },
   {
     title: 'Programming',
     icon: 'fas fa-code',
-    skills: ['PYTHON', 'JAVA', 'TYPESCRIPT', 'TENSORFLOW', 'PYTORCH', 'LANGCHAIN', 'HUGGING FACE TRANSFORMERS', 'SCIKIT-LEARN', 'CUDA', 'PANDAS', 'NUMPY']
+    skills: [
+      'Python',
+      'SQL',
+      'R',
+      'HTML & CSS',
+      'CI/CD with GitHub Actions'
+
+    ]
   },
   {
-    title: 'Data Science',
-    icon: 'fas fa-chart-line',
-    skills: ['FEATURE ENGINEERING', 'DIMENSIONALITY REDUCTION', 'CLUSTERING', 'STATISTICAL MODELING', 'DATABRICKS', 'PLOTLY DASH']
+    title: 'Tools',
+    icon: 'fas fa-flask',
+    skills: [
+      'Git',
+      'Tableau',
+      'Power BI',
+      'Streamlit'
+    ]
+  },
+  {
+    title: 'Project & Communication Skills',
+    icon: 'fas fa-users',
+    skills: [
+      'Data-Driven Stakeholder Reporting',
+      'Cross-Functional Collaboration',
+      'Project Planning & Execution',
+      'Multilingual Communication'
+    ]
   }
 ];
 
+
 export const EXPERIENCES: Experience[] = [
   {
-    company: 'Quantum Intelligence Lab',
-    role: 'Lead AI Research Graduate',
-    period: '2023 - Present',
+    company: 'Accenture PLC',
+    role: 'Business Advisory Associate',
+    period: 'July 2024 – Present',
     description: [
-      'Architected cloud-native LLM pipelines on AWS SageMaker serving 10k+ requests daily.',
-      'Implemented vector database integrations (Pinecone) for RAG systems.',
-      'Led research on Neuro-Symbolic AI to improve model reasoning accuracy by 22%.',
-      'Orchestrated CI/CD pipelines for ML models using GitHub Actions and Docker.'
+      'Processed 40+ daily content pieces in English and Mandarin, maintaining a 98%+ accuracy rate per Trust & Safety guidelines.',
+      'Ensured 100% compliance with evolving community policies and workflows.',
+      'Identified and addressed sensitive or policy-violating content to maintain platform integrity.',
+      'Contributed to process improvements by identifying workflow gaps and proposing solutions.',
+      'Led team bonding and wellness activities to strengthen collaboration and team culture.'
     ]
   },
   {
-    company: 'University Data Institute',
-    role: 'Graduate Research Assistant',
-    period: '2022 - 2023',
+    company: 'Freelance',
+    role: 'Swimming Instructor',
+    period: 'Jan 2025 – Present',
     description: [
-      'Developed distributed training scripts for large-scale GNNs on multi-GPU clusters.',
-      'Cleaned and processed 5TB+ of geospatial transit data for urban planning analysis.',
-      'Published results in the International Journal of Data Science (IJDS).',
-      'Mentored 15 undergrad students in Python and Statistical Modeling fundamentals.'
+      'Designed and delivered customized 1-on-1 and group swimming lessons for children and adults.',
+      'Developed lesson plans to improve client skill proficiency and water safety awareness.',
+      'Monitored student progress and provided actionable feedback to ensure consistent improvement.',
+      'Managed client acquisition and scheduling independently while maintaining safety protocols.'
     ]
   },
   {
-    company: 'BioTech Solutions Inc.',
-    role: 'Data Analyst Intern',
-    period: '2021 - 2022',
+    company: 'Hartalega Sdn Bhd',
+    role: 'R&D Microbiologist',
+    period: 'Jan 2021 – Dec 2023',
     description: [
-      'Automated genomic sequence reporting pipelines using Python and Bash scripts.',
-      'Created interactive Dashboards in Plotly for clinical trial monitoring.'
+      'Managed complex R&D projects, ensuring 95% milestone adherence and timely data delivery for scale-up trials.',
+      'Performed root cause analysis (PDCA, 5 Whys) to resolve critical manufacturing and quality inconsistencies.',
+      'Streamlined FDA submission workflows by coordinating data interpretation across R&D, QA, and Production.',
+      'Developed and validated 3 new microbiological testing methods, reducing reliance on external labs and cutting costs.',
+      'Provided technical support to sales teams for customer inquiries and complaint resolution.'
+    ]
+  },
+  {
+    company: 'FC-BIOS Sdn Bhd',
+    role: 'Technical Sales Specialist',
+    period: 'Jan 2020 – Dec 2020',
+    description: [
+      'Managed a sales portfolio of 20+ life science products for Central & Perak regions.',
+      'Exceeded territory sales targets by 20% through business development and account management.',
+      'Provided on-site technical advice, training, and after-sales support to clients.',
+      'Identified new business opportunities in the cold chain and glove industry through market analysis.'
+    ]
+  },
+  {
+    company: 'Chemsil (Air & Water) Sdn Bhd',
+    role: 'Microbiologist',
+    period: 'Jan 2019 – Dec 2019',
+    description: [
+      'Led daily lab operations, equipment maintenance, and certificate of analysis generation per GMP/GLP standards.',
+      'Performed microbiological testing of food, water, and pharmaceutical samples in accordance with USP, BP, and APHA standards.',
+      'Processed 30+ samples daily with zero critical errors, ensuring quality and compliance.'
     ]
   }
 ];
 
 export const EDUCATION = [
   {
-    degree: 'Master of Data Science',
-    school: 'Global Tech University',
-    year: '2022 - 2024',
-    details: 'GPA 3.9/4.0. Focused on Deep Learning, Cloud Computing, and Bayesian Statistics.'
+    degree: 'Master of Data Science (With Distinction)',
+    school: 'University of Malaya',
+    year: '2023 – 2025',
+    details: 'CGPA: 3.86/4.00. Research: Meteorological Variable-Based Daily Rainfall Prediction using Ensemble Learning & ANN.'
   },
   {
-    degree: 'B.S. in Biotechnology',
-    school: 'Pacific Science Institute',
-    year: '2018 - 2022',
-    details: 'Specialized in Bioinformatics and Molecular Modeling.'
+    degree: 'Bachelor of Biotechnology (First Class Honours)',
+    school: 'INTI International University',
+    year: '2017 – 2020',
+    details: 'CGPA: 3.59/4.00. Research: Bioremediation Potential of Indigenous Soil Fungi for Detoxification of Hexavalent Chromium [Cr(VI)].'
   }
 ];
 
 export const CERTIFICATIONS = [
-  'AWS Certified Solutions Architect – Professional',
-  'Google Cloud Professional Data Engineer',
-  'DeepLearning.AI TensorFlow Developer',
-  'Databricks Certified Data Engineer Associate'
+  'Python for Data Science',
+  'SQL for Data Analytics',
 ];
