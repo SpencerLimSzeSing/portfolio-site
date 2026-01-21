@@ -266,13 +266,34 @@ const App: React.FC = () => {
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-8 border-t border-white/10">
-                <div className="md:col-span-2 space-y-6">
-                  <h4 className="text-lg font-extrabold text-white">Abstract</h4>
-                  <p className="text-gray-400 text-lg leading-relaxed">{selectedProject.description}</p>
+                <div className="md:col-span-2 space-y-10">
+                  <div className="space-y-4">
+                    <h4 className="text-lg font-extrabold text-white flex items-center gap-3">
+                      <i className="fas fa-file-alt text-[#06B6D4]"></i> Abstract
+                    </h4>
+                    <p className="text-gray-400 text-lg leading-relaxed">{selectedProject.description}</p>
+                  </div>
+                  <div className="space-y-4">
+                    <h4 className="text-lg font-extrabold text-white flex items-center gap-3">
+                      <i className="fas fa-lightbulb text-[#EC4899]"></i> Key Takeaway
+                    </h4>
+                    <p className="text-gray-400 text-lg leading-relaxed">{selectedProject.detailedInsights}</p>
+                  </div>
                 </div>
                 <div className="space-y-8">
-                  <a href={selectedProject.repoUrl} target="_blank" rel="noopener noreferrer" className="w-full bg-gradient-to-r from-[#06B6D4] to-[#8B5CF6] text-white py-5 rounded-[1.5rem] font-black text-sm uppercase tracking-widest shadow-xl shadow-purple-500/40 transition-all hover:scale-105 text-center block">View Repository</a>
-                </div>
+                  <div className="bg-white/5 border border-white/10 p-8 rounded-[2rem] space-y-6">
+                    <p className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Stack & Tools</p>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedProject.tags.map(tag => (
+                        <span key={tag} className="text-[10px] font-bold bg-white/5 text-gray-300 border border-white/10 px-3 py-1.5 rounded-xl uppercase">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <a href={selectedProject.repoUrl} target="_blank" rel="noopener noreferrer" className="w-full bg-gradient-to-r from-[#06B6D4] to-[#8B5CF6] text-white py-5 rounded-[1.5rem] font-black text-sm uppercase tracking-widest shadow-xl shadow-purple-500/40 transition-all hover:scale-105 text-center block">
+                    View Repository
+                  </a>                </div>
               </div>
             </div>
           </div>
