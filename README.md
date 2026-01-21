@@ -34,7 +34,7 @@ portfolio-site/
 ├── README.md               # Project documentation
 │
 ├── index.html              # HTML template used by Vite
-││
+│
 ├── package.json            # Project dependencies, scripts, and metadata
 ├── package-lock.json       # Locked dependency versions for reproducible installs
 │
