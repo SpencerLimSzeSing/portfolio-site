@@ -4,7 +4,7 @@ A professional, high-performance portfolio site built with React and Vite to sho
 ## 🚀 Overview
 This project serves as a centralized hub for my data science journey. It features a clean, responsive design and is optimized for fast loading and easy navigation to demonstrate my work to potential employers and collaborators.
 
-🔗 [View My Portfolio](https://your-github-username.github.io/portfolio-site/)
+🔗 [View My Portfolio](https://spencerlimszesing.github.io/portfolio-site/)
 
 ## 🛠️ Technical Stack
 - Frontend: React 18, Vite
