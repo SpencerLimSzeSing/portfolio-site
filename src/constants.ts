@@ -34,7 +34,7 @@ export const PROJECTS: Project[] = [
     forks: 15,
     language: 'Python',
     color: '#3572A5',
-    detailedInsights: 'Achieved 99.95% accuracy in detecting fraudulent job postings by combining TF-IDF text features with structured job metadata. Tree-based models significantly outperformed linear classifiers, demonstrating strong non-linear relationships in recruitment fraud patterns. The final Random Forest model was deployed via Streamlit for real-time prediction.',
+    detailedInsights: 'The final Random Forest model delivered strong and well-balanced performance, with enhanced fraud recall achieved through class weighting and probability threshold tuning. The results indicate that recruitment fraud patterns exhibit non-linear relationships, as tree-based models consistently outperformed the linear SGD classifier. The model was deployed using Streamlit, allowing users to input job posting details and receive an interactive, instant fraud risk evaluation.',
     repoUrl: 'https://github.com/SpencerLimSzeSing/fraudulent-job-prediction'
   },
   {
