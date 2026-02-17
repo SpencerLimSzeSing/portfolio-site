@@ -80,7 +80,7 @@ export const PROJECTS: Project[] = [
     color: '#3572A5',
     detailedInsights:
       'Built an automated end-to-end montage workflow to reproject, align, and merge astronomical FITS images into seamless mosaics. The pipeline modularized preprocessing, reprojection, and color composition steps, improving reproducibility and reducing manual processing effort for large-scale scientific imaging tasks.',
-    repoUrl: 'https://github.com/spencer-lim/montage-image-pipeline'
+    repoUrl: 'https://github.com/SpencerLimSzeSing/ImageProcessing-HTCondor'
   }
 ];
 
