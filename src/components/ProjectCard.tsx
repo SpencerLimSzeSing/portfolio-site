@@ -42,9 +42,23 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
           ))}
         </div>
 
-        <button className="text-transparent bg-clip-text bg-gradient-to-r from-[#06B6D4] to-[#8B5CF6] text-[11px] font-black uppercase tracking-[0.25em] flex items-center gap-3 group-hover:gap-5 transition-all">
-          Full Case Study <i className="fas fa-arrow-right text-[#8B5CF6]"></i>
-        </button>
+        <div className="flex items-center justify-between gap-4">
+          <button className="text-transparent bg-clip-text bg-gradient-to-r from-[#06B6D4] to-[#8B5CF6] text-[11px] font-black uppercase tracking-[0.25em] flex items-center gap-3 group-hover:gap-5 transition-all">
+            Full Case Study <i className="fas fa-arrow-right text-[#8B5CF6]"></i>
+          </button>
+
+          {project.streamlitUrl && (
+            
+              href={project.streamlitUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest bg-[#EC4899]/10 border border-[#EC4899]/30 text-[#EC4899] px-4 py-2 rounded-xl hover:bg-[#EC4899]/20 hover:border-[#EC4899]/60 transition-all"
+            >
+              <i className="fas fa-external-link-alt"></i> Streamlit
+            </a>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -57,8 +57,9 @@ export const PROJECTS: Project[] = [
     language: 'Python',
     color: '#3572A5',
     detailedInsights:
-      'Developed an ANN-based stacking ensemble to classify daily rainfall intensity in arid regions. Addressed severe class imbalance using SMOTE and improved predictive robustness by combining KNN-ANN, RF-ANN, and XGB-ANN models, achieving strong performance across minority rainfall classes.',
-    repoUrl: 'https://github.com/spencer-lim/daily-rainfall-prediction'
+      'Developed an ANN-based stacking ensemble to classify daily rainfall intensity in arid regions. Addressed severe class imbalance in the dataset and improved predictive robustness by combining Base Learners (KNN, RF, and XGB models) and meta-learner (ANN), achieving strong performance across minority rainfall classes.',
+    repoUrl: 'https://github.com/spencer-lim/daily-rainfall-prediction',
+    streamlitUrl: 'https://mds2024.streamlit.app/'
   },
   {
     id: 'montage-image',

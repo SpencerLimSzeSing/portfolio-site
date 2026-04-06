@@ -12,6 +12,7 @@ export interface Project {
   color: string;
   detailedInsights: string;
   repoUrl: string;
+  streamlitUrl?: string;
 }
 
 export interface Skill {
