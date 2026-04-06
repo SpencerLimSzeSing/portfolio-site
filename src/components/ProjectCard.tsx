@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Project } from '../types';
 
 interface ProjectCardProps {
@@ -48,7 +48,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
           </button>
 
           {project.streamlitUrl && (
-            
+            <a
               href={project.streamlitUrl}
               target="_blank"
               rel="noopener noreferrer"
