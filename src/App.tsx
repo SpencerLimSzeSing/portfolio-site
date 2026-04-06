@@ -293,7 +293,13 @@ const App: React.FC = () => {
                   </div>
                   <a href={selectedProject.repoUrl} target="_blank" rel="noopener noreferrer" className="w-full bg-gradient-to-r from-[#06B6D4] to-[#8B5CF6] text-white py-5 rounded-[1.5rem] font-black text-sm uppercase tracking-widest shadow-xl shadow-purple-500/40 transition-all hover:scale-105 text-center block">
                     View Repository
-                  </a>                </div>
+                  </a>
+                  {selectedProject.streamlitUrl && (
+                    <a href={selectedProject.streamlitUrl} target="_blank" rel="noopener noreferrer" className="w-full bg-[#EC4899]/10 border border-[#EC4899]/30 text-[#EC4899] py-5 rounded-[1.5rem] font-black text-sm uppercase tracking-widest transition-all hover:scale-105 hover:bg-[#EC4899]/20 hover:border-[#EC4899]/60 text-center block flex items-center justify-center gap-2">
+                      <i className="fas fa-external-link-alt"></i> Streamlit
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           </div>
