@@ -83,6 +83,27 @@ export const PROJECTS: Project[] = [
       'Built an automated end-to-end montage workflow to reproject, align, and merge astronomical FITS images into seamless mosaics. The pipeline modularized preprocessing, reprojection, and color composition steps, improving reproducibility and reducing manual processing effort for large-scale scientific imaging tasks.',
     repoUrl: 'https://github.com/SpencerLimSzeSing/ImageProcessing-HTCondor'
   }
+  {
+    id: 'revenue-prediction',
+    title: 'Company Revenue Growth Analysis & Prediction',
+    description: 'Statistical analysis and classification models to explore the relationship between employee count and revenue, and predict the likelihood of positive revenue growth in 2023.',
+    tags: [
+      'R',
+      'Linear Regression',
+      'Logistic Regression',
+      'Random Forest',
+      'Naive Bayes',
+      'EDA'
+    ],
+    category: 'MACHINE LEARNING',
+    image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    stars: 0,
+    forks: 0,
+    language: 'R',
+    color: '#276DC3',
+    detailedInsights: 'Analyzed 600 global e-commerce companies to uncover drivers of revenue performance. Applied log transformation to address skewness and built a linear regression model confirming a statistically significant but modest relationship between employee count and revenue (R² = 0.28). Three classification models — Logistic Regression, Random Forest, and Naive Bayes — were trained to predict positive revenue growth, with findings highlighting the impact of class imbalance on model performance.',
+    repoUrl: 'https://github.com/SpencerLimSzeSing/WQD7004-Revenue-Prediction'
+  },
 ];
 
 export const SKILL_GROUPS = [
