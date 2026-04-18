@@ -117,7 +117,7 @@ export const PROJECTS: Project[] = [
       'Climate Analytics'
     ],
     category: 'DATA VISUALIZATION',
-    image: 'https://unsplash.com/photos/an-aerial-view-of-a-large-field-of-crops-2wzLWVk8U7o', 
+    image: 'https://images.unsplash.com/photo-1659730513420-02ec65b5f0f0?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 
     stars: 0,        
     forks: 0,        
     language: 'SQL',
