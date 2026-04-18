@@ -104,6 +104,27 @@ export const PROJECTS: Project[] = [
     detailedInsights: 'Analyzed 600 global e-commerce companies to uncover drivers of revenue performance. Applied log transformation to address skewness and built a linear regression model confirming a statistically significant but modest relationship between employee count and revenue (R² = 0.28). Three classification models — Logistic Regression, Random Forest, and Naive Bayes — were trained to predict positive revenue growth, with findings highlighting the impact of class imbalance on model performance.',
     repoUrl: 'https://github.com/SpencerLimSzeSing/WQD7004-Revenue-Prediction'
   },
+  {   
+    id: 'climate-agriculture-analysis',
+    title: 'Comprehensive Agricultural & Climate Trend Analysis',
+    description: 'An end-to-end GCP pipeline analyzing the impact of global warming and extreme weather on crop yields using BigQuery and Looker Studio.',
+    tags: [
+      'SQL',
+      'Google BigQuery',
+      'GCP',
+      'Looker Studio',
+      'Data Engineering',
+      'Climate Analytics'
+    ],
+    category: 'DATA VISUALIZATION',
+    image: 'https://unsplash.com/photos/an-aerial-view-of-a-large-field-of-crops-2wzLWVk8U7o', 
+    stars: 0,        
+    forks: 0,        
+    language: 'SQL',
+    color: '#4285F4',
+    detailedInsights: 'Architected a full-stack data solution on GCP. Leveraged advanced SQL window functions to normalize climate metrics across 10,000 global records...',
+    repoUrl: 'https://github.com/SpencerLimSzeSing/SQL-GoogleBigQuery-Projects'
+  }, 
 ];
 
 export const SKILL_GROUPS = [
