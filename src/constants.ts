@@ -107,13 +107,12 @@ export const PROJECTS: Project[] = [
   {   
     id: 'climate-agriculture-analysis',
     title: 'Comprehensive Agricultural & Climate Trend Analysis',
-    description: 'An end-to-end GCP pipeline analyzing the impact of global warming and extreme weather on crop yields using BigQuery and Looker Studio.',
+    description: 'An end-to-end GCP pipeline analyzing the impact of climate change on crop yields using BigQuery and Looker Studio.',
     tags: [
       'SQL',
       'Google BigQuery',
       'GCP',
       'Looker Studio',
-      'Data Engineering',
       'Climate Analytics'
     ],
     category: 'DATA VISUALIZATION',
@@ -122,7 +121,7 @@ export const PROJECTS: Project[] = [
     forks: 0,        
     language: 'SQL',
     color: '#4285F4',
-    detailedInsights: 'Architected a full-stack data solution on GCP. Leveraged advanced SQL window functions to normalize climate metrics across 10,000 global records...',
+    detailedInsights: 'Architected a data solution on GCP and identified several critical relationships between climate variables and food security',
     repoUrl: 'https://github.com/SpencerLimSzeSing/SQL-GoogleBigQuery-Projects'
   }, 
 ];
