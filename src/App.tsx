@@ -79,7 +79,7 @@ const App: React.FC = () => {
               <span className="text-gradient">Lim Sze Sing</span>
             </h1>
             <p className="text-gray-300 text-lg lg:text-2xl max-w-2xl leading-relaxed font-medium">
-              Bridging the gap between scientific domain expertise and scalable data-driven solutions.
+              Translating business requirements into data-driven insights and scalable solutions.
             </p>
             <div className="flex flex-wrap gap-6 pt-6">
               <a href="#contact" className="bg-gradient-to-r from-[#06B6D4] via-[#8B5CF6] to-[#EC4899] text-white px-12 py-5 rounded-2xl font-black text-xs uppercase tracking-widest shadow-2xl shadow-purple-500/40 hover:translate-y-[-6px] hover:shadow-purple-500/60 transition-all">
