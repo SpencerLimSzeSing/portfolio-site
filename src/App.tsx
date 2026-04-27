@@ -115,7 +115,7 @@ const App: React.FC = () => {
 
               <div className="space-y-10">
                 <p className="text-gray-300 text-lg lg:text-xl leading-[1.8] font-medium text-justify">
-                  Master of Data Science graduate with a multidisciplinary background in R&D, microbiology, sales, and business operations. I specialize in turning complex laboratory and business problems into actionable insights through structured analytical workflows, data validation, and visualization.
+                  Master of Data Science graduate with a multidisciplinary background in R&D, microbiology, sales, and business operations. I specialize in turning complex laboratory and business problems into actionable insights through structured analytical workflows, data validation, and visualization. Experienced in working with stakeholders, performing process mapping, and translating business needs into analytical solutions.
                 </p>
                 <p className="text-gray-300 text-lg lg:text-xl leading-[1.8] font-medium text-justify">
                   With hands-on experience in Python, SQL, machine learning, and Tableau, I have delivered data-backed solutions that accelerated stakeholder decision-making, optimized workflows, and supported regulatory compliance. Fluent in English, Bahasa Malaysia, and Mandarin.
