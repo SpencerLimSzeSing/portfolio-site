@@ -319,6 +319,7 @@ const App: React.FC = () => {
                     <p className="text-sm font-extrabold text-white">{edu.degree}</p>
                     <p className="text-xs text-gray-400 font-bold">{edu.school}</p>
                     <p className="text-[10px] text-gray-500 mt-1">{edu.year}</p>
+                    <p className="text-[10px] text-gray-500 mt-1">{edu.details}</p>
                   </div>
                 ))}
               </div>
