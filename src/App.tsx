@@ -125,7 +125,7 @@ const App: React.FC = () => {
               <div className="pt-14 mt-14 border-t border-white/10">
                 <p className="text-[12px] font-black text-gray-500 uppercase tracking-widest mb-4">Core Domain</p>
                 <p className="text-[#06B6D4] text-xl font-bold tracking-tight">
-                  Life Sciences & Analytical R&D
+                 Life Sciences, Analytical Research, Data Analysis & Process Improvement
                 </p>
               </div>
             </div>
