@@ -253,6 +253,7 @@ export const EDUCATION = [
 ];
 
 export const CERTIFICATIONS = [
-  'Python for Data Science',
-  'SQL for Data Analytics',
+  'Google Cloud Data Analytics Certificate | Google | 2025',
+  'Intermediate SQL | DataCamp | 2025',
+  'Data Visualization and Dashboards with Excel and Cognos | Coursera | 2023'
 ];
