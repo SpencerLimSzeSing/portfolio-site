@@ -182,10 +182,11 @@ export const EXPERIENCES: Experience[] = [
     role: 'Business Advisory Associate',
     period: 'July 2024 – Present',
     description: [
-      'Processed 40+ daily content pieces in English and Mandarin, maintaining a 98%+ accuracy rate per Trust & Safety guidelines.',
-      'Ensured 100% compliance with evolving community policies and workflows.',
-      'Identified and addressed sensitive or policy-violating content to maintain platform integrity.',
+      'Gathered and analyzed business and user requirements to support workflow and process improvements, documenting functional requirements aligned with stakeholder needs.',
+      'Maintained 98%+ accuracy while processing 40+ content cases daily, ensuring data quality and adherence to operational guidelines.',
+      'Collaborated with cross-functional teams within Agile and Waterfall environments to support process implementation and operational improvements.',
       'Contributed to process improvements by identifying workflow gaps and proposing solutions.',
+      'Prepared process documentation and functional specifications, contributing to requirements-driven initiatives and continuous improvement efforts.',
       'Led team bonding and wellness activities to strengthen collaboration and team culture.'
     ]
   },
@@ -205,11 +206,11 @@ export const EXPERIENCES: Experience[] = [
     role: 'R&D Microbiologist',
     period: 'Jan 2021 – Dec 2023',
     description: [
-      'Managed complex R&D projects, ensuring 95% milestone adherence and timely data delivery for scale-up trials.',
-      'Performed root cause analysis (PDCA, 5 Whys) to resolve critical manufacturing and quality inconsistencies.',
-      'Streamlined FDA submission workflows by coordinating data interpretation across R&D, QA, and Production.',
-      'Developed and validated 3 new microbiological testing methods, reducing reliance on external labs and cutting costs.',
-      'Provided technical support to sales teams for customer inquiries and complaint resolution.'
+      'Analyzed large-scale historical datasets to identify patterns, diagnose inconsistencies, and support data-driven operational decisions.',
+      'Built Tableau dashboards and automated reporting workflows, reducing reporting turnaround time by 50% and improving visibility into key operational metrics.',
+      'Performed root cause analysis and workflow gap analysis to streamline data readiness processes, reducing preparation cycle time from 6 weeks to 4 weeks.',
+      'Supported validation of new testing methods through standardized analytical workflows, ensuring data integrity and regulatory compliance.',
+      'Prepared ad-hoc analytical reports and insights to support operational and regulatory decision-making.'
     ]
   },
   {
@@ -217,9 +218,10 @@ export const EXPERIENCES: Experience[] = [
     role: 'Technical Sales Specialist',
     period: 'Jan 2020 – Dec 2020',
     description: [
-      'Managed a sales portfolio of 20+ life science products for Central & Perak regions.',
-      'Exceeded territory sales targets by 20% through business development and account management.',
-      'Provided on-site technical advice, training, and after-sales support to clients.',
+      'Generated RM900k in annual revenue by applying data-backed sales strategies and market trend analysis across a portfolio of 20+ Life Science products and services.',
+      'Gathered business requirements from clients and translated them into solution proposals and technical documentation.',
+      'Exceeded territory sales targets by 20% by identifying new business opportunities through cold-chain and glove industry data analysis.',
+      'Provided on-site technical advice, training and after sales support to clients.',
       'Identified new business opportunities in the cold chain and glove industry through market analysis.'
     ]
   },
@@ -229,7 +231,7 @@ export const EXPERIENCES: Experience[] = [
     period: 'Jan 2019 – Dec 2019',
     description: [
       'Led daily lab operations, equipment maintenance, and certificate of analysis generation per GMP/GLP standards.',
-      'Performed microbiological testing of food, water, and pharmaceutical samples in accordance with USP, BP, and APHA standards.',
+      'Managed and executed microbiological testing (food, water, pharmaceutical samples) in accordance with international standards (e.g., USP, BP, APHA).',
       'Processed 30+ samples daily with zero critical errors, ensuring quality and compliance.'
     ]
   }
