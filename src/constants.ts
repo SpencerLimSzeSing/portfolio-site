@@ -121,7 +121,7 @@ export const PROJECTS: Project[] = [
     forks: 0,        
     language: 'SQL',
     color: '#4285F4',
-    detailedInsights: 'Architected a data solution on GCP and identified several critical relationships between climate variables and food security',
+    detailedInsights: 'Uncovered climate-driven agricultural risks by analyzing global temperature trends, extreme weather patterns, and crop productivity using cloud analytics.',
     repoUrl: 'https://github.com/SpencerLimSzeSing/SQL-GoogleBigQuery-Projects'
   }, 
 ];
@@ -189,9 +189,9 @@ export const EXPERIENCES: Experience[] = [
     role: 'Business Advisory Associate',
     period: 'July 2024 – Present',
     description: [
-      'Gathered and analyzed business and user requirements to support workflow and process improvements, documenting functional requirements aligned with stakeholder needs.',
-      'Maintained 98%+ accuracy while processing 40+ content cases daily, ensuring data quality and adherence to operational guidelines.',
-      'Collaborated with cross-functional teams within Agile and Waterfall environments to support process implementation and operational improvements.',
+      'Gathered and analyzed business and user requirements to support workflow and system improvements, producing structured functional specifications aligned with stakeholder objectives.',
+      'Maintained 98%+ accuracy processing 40+ daily content pieces, demonstrating strong data quality and validation discipline.',
+      'Collaborated with cross-functional teams across SDLC workflows to align business needs with system implementation.',
       'Contributed to process improvements by identifying workflow gaps and proposing solutions.',
       'Prepared process documentation and functional specifications, contributing to requirements-driven initiatives and continuous improvement efforts.',
       'Led team bonding and wellness activities to strengthen collaboration and team culture.'
