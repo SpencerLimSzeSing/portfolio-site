@@ -14,7 +14,7 @@ export const PROJECTS: Project[] = [
     language: 'Python',
     color: '#3572A5',
     detailedInsights: 'Built a predictive model using environmental factors such as rainfall, and temperature indicators to estimate crop yield, enabling early assessment of climate impact and supporting proactive decision-making for food security.',
-    repoUrl: 'https://github.com/SpencerLimSzeSing/crop-yield-predition'
+    repoUrl: 'https://github.com/SpencerLimSzeSing/crop-yield-prediction'
   },
   {
     id: 'fraud-job',
