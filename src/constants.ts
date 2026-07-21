@@ -131,13 +131,16 @@ export const SKILL_GROUPS = [
     title: 'Machine Learning & Data Analytics',
     icon: 'fas fa-brain',
     skills: [
+      'Statistical Analysis', 
+      'Hypothesis Testing & A/B Testing',
+      'Data Visualization',
       'Feature Engineering',
+      'Predictive Modeling',
+      'Ensemble Learning',
       'Dimensionality Reduction',
       'Clustering',
-      'Statistical Modeling', 
-      'Data Visualization',
-      'Artificial Neural Networks (ANN)',
-      'Ensemble Learning'
+      'Data Storytelling & Dashboarding',
+      'ETL / ELT'
 
     ]
   },
@@ -148,8 +151,7 @@ export const SKILL_GROUPS = [
       'Python',
       'SQL',
       'R',
-      'HTML & CSS',
-      'CI/CD with GitHub Actions'
+      'Git'
 
     ]
   },
@@ -157,20 +159,25 @@ export const SKILL_GROUPS = [
     title: 'Tools',
     icon: 'fas fa-flask',
     skills: [
-      'Git',
       'Tableau',
       'Power BI',
-      'Streamlit'
+      'Excel',
+      'Data Studio',
+      'Streamlit',
+      'Jupyter Notebook',
+      'Google Cloud',
+      'AWS'
     ]
   },
   {
     title: 'Project & Communication Skills',
     icon: 'fas fa-users',
     skills: [
-      'Data-Driven Stakeholder Reporting',
+      'Stakeholder Management',
+      'Business Requirement Gathering',
+      'Data Storytelling & Reporting',
       'Cross-Functional Collaboration',
-      'Project Planning & Execution',
-      'Multilingual Communication'
+      'Project Planning & Execution'
     ]
   }
 ];

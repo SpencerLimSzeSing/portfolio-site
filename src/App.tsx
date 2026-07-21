@@ -115,17 +115,20 @@ const App: React.FC = () => {
 
               <div className="space-y-10">
                 <p className="text-gray-300 text-lg lg:text-xl leading-[1.8] font-medium text-justify">
-                  Master of Data Science graduate with a multidisciplinary background in R&D, microbiology, sales, and business operations. I specialize in turning complex laboratory and business problems into actionable insights through structured analytical workflows, data validation, and visualization. Experienced in working with stakeholders, performing process mapping, and translating business needs into analytical solutions.
+                  My journey began in R&D and Life Sciences, where every decision relied on evidence, experimentation, and precision. Pursuing a Master of Data Science let me bring that same precision to business problems — turning data into decisions through statistical analysis, machine learning, and dashboards that help teams uncover insights, optimize processes, and act with confidence.
                 </p>
                 <p className="text-gray-300 text-lg lg:text-xl leading-[1.8] font-medium text-justify">
-                  With hands-on experience in Python, SQL, machine learning, and Tableau, I have delivered data-backed solutions that accelerated stakeholder decision-making, optimized workflows, and supported regulatory compliance. Fluent in English, Bahasa Malaysia, and Mandarin.
+                  Working across Python, SQL, Tableau, Power BI, and cloud platforms: GCP and AWS, I bridge technical analysis with business strategy. Fluent in English, Bahasa Malaysia, and Mandarin.
+                </p>
+                <p className="text-gray-300 text-lg lg:text-xl leading-[1.8] font-medium text-justify">
+                  I believe great analytics isn't just about building models — it's about understanding the business problem, asking the right questions, and communicating insights that create real value.
                 </p>
               </div>
 
               <div className="pt-14 mt-14 border-t border-white/10">
                 <p className="text-[12px] font-black text-gray-500 uppercase tracking-widest mb-4">Core Domain</p>
                 <p className="text-[#06B6D4] text-xl font-bold tracking-tight">
-                 Life Sciences, Analytical Research, Data Analysis & Process Improvement
+                  Data Analysis , Process Improvement, Operational Excellence, Life Sciences, Analytical Research, Machine Learning
                 </p>
               </div>
             </div>
