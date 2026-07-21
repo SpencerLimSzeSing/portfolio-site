@@ -63,7 +63,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'montage-image',
-    title: 'Astronomical Image Montage Pipeline',
+    title: 'Distributed Astronomical Image Processing Pipeline',
     description: 'Automated image mosaicking pipeline for generating high-quality astronomical montages using workflow scripting.',
     tags: [
       'Python',
@@ -80,7 +80,7 @@ export const PROJECTS: Project[] = [
     language: 'Python',
     color: '#3572A5',
     detailedInsights:
-      'Built an automated end-to-end montage workflow to reproject, align, and merge astronomical FITS images into seamless mosaics. The pipeline modularized preprocessing, reprojection, and color composition steps, improving reproducibility and reducing manual processing effort for large-scale scientific imaging tasks.',
+      'Built a cloud-based distributed image processing pipeline on AWS using HTCondor, DAGMan, and NFS to execute astronomical image mosaicking tasks in parallel. Improved resource utilization, reduced execution time compared to single-node processing.',
     repoUrl: 'https://github.com/SpencerLimSzeSing/ImageProcessing-HTCondor'
   },
   {
